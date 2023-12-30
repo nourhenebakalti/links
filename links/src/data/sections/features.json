@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "icon": "pe-7s-light",
+    "title": "Creativity & Innovation",
+    "details": "Pioneering strategies for digital excellence."
+  },
+  {
+    "id": 2,
+    "icon": "pe-7s-study",
+    "title": "Specialization",
+    "details": "Tailored solutions for diverse industries."
+  },
+  {
+    "id": 3,
+    "icon": "pe-7s-medal",
+    "title": "Results",
+    "details": "Unparalleled value for your brand."
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Crafting Identity | Designing the Future",
+    "icon": "pe-7s-id",
+    "content": "Elevate your brand with bespoke visual identity, including web development for immersive online experiences."
+  },
+  {
+    "id": 2,
+    "title": "Social Symphony: Social Media Management",
+    "icon": "pe-7s-target",
+    "content": "Conduct a social symphony, dominating Instagram, Facebook, and beyond with specialized marketing."
+  },
+  {
+    "id": 3,
+    "title": "Visual Chronicles: Audio-Visual Production",
+    "icon": "pe-7s-video",
+    "content": "Script and produce captivating narratives, specializing in crafting vertical video for the modern mobile era."
+  },
+  {
+    "id": 4,
+    "title": "Strategic Echo: Advertising Mastery",
+    "icon": "pe-7s-speaker",
+    "content": "Develop campaigns that echo in the minds of your audience through targeted advertising for diverse and engaged audiences."
+  },
+  {
+    "id": 5,
+    "title": "Influence Amplified: Influencer Marketing",
+    "icon": "pe-7s-gleam",
+    "content": "Forge authentic connections with influencers, amplifying your brand message through influential partnerships."
+  },
+  {
+    "id": 6,
+    "title": "Story Weavers: Content Creation",
+    "icon": "pe-7s-film",
+    "content": "Weave resonant stories that inspire action through tailored content creation for diverse platforms."
+  }
+]
