@@ -150,14 +150,14 @@ const ContactWithMap = ({ theme = "dark" }) => {
           </div>
         </div>
       </section>
-      <div className="map" id="ieatmaps">
+      {/*<div className="map" id="ieatmaps">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19868.687203718404!2d-0.14297520856388865!3d51.502466162777694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondon%2C%20UK!5e0!3m2!1sen!2seg!4v1644772966009!5m2!1sen!2seg"
           style={{ border: 0 }}
           allowFullScreen=""
           loading="lazy"
         ></iframe>
-      </div>
+        </div>*/}
 
       <footer className="footer-half sub-bg">
         <div className="container">

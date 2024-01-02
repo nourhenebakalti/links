@@ -22,7 +22,7 @@ const PortfolioCustomColumn = ({
   }, [pageLoaded]);
   return (
     <section className="portfolio section-padding pb-70">
-      {!hideSectionTitle && (
+      {hideSectionTitle && (
         <div className="container">
           <div className="sec-head custom-font">
             <h6 className="wow fadeIn" data-wow-delay=".5s">
@@ -54,9 +54,9 @@ const PortfolioCustomColumn = ({
                 <span data-filter="*" className="active">
                   All
                 </span>
-                <span data-filter=".brand">Branding</span>
-                <span data-filter=".web">Mobile App</span>
-                <span data-filter=".graphic">Creative</span>
+                <span data-filter=".tourism">Tourism</span>
+                <span data-filter=".restaurants">Restaurants</span>
+                <span data-filter=".fashion">Fashion</span>
               </div>
             </div>
           )}
@@ -81,7 +81,7 @@ const PortfolioCustomColumn = ({
                 data-wow-delay=".4s"
               >
                 <div className="item-img">
-                  <Link href="/project-details2/project-details2-dark">
+                  <Link href={item.link}>
                     <a className="imago wow">
                       <img src={item.image} alt="image" />
                       <div className="item-img-overlay"></div>

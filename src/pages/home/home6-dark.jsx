@@ -6,14 +6,9 @@ import Navbar from "../../components/Navbar";
 import BlcSec from "../../components/Blc-sec";
 import Intro from "../../components/Intro-txt2";
 import Features from "../../components/Features";
-import ServicesTop from "../../components/Services5";
-import Works from "../../components/Works3-slider";
-import Skills from "../../components/Skills-circle2";
 import ServicesBottom from "../../components/Services6";
 import Testimonials1 from "../../components/Testimonials1";
-import Testimonials from "../../components/Testimonials2";
 import Clients from "../../components/Clients1";
-import Blogs from "../../components/Blogs-three-column1";
 import CallToAction from "../../components/Call-to-action";
 import Footer from "../../components/Footer";
 
