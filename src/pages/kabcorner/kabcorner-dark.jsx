@@ -4,10 +4,12 @@ import Navbar from "../../components/Navbar";
 import ProjectDetails2Header from "../../components/Project-details2-header";
 import ProjectDetails2Introduction from "../../components/Project-details2-introduction";
 import ProjectDetails2Images from "../../components/Project-details2-images";
-import ProjectDetailsDescription from "../../components/Project-details-description";
+//import ProjectDetailsDescription from "../../components/Project-details-description";
 import ProjectDetailsVideo from "../../components/Project-details-video";
-import NextProject from "../../components/Next-project";
-import SmallFooter from "../../components/Small-footer";
+import Footer from "../../components/Footer";
+//import NextProject from "../../components/Next-project";
+//import SmallFooter from "../../components/Small-footer";
+
 
 
 const ProjectDetails2Dark = () => {
@@ -35,17 +37,11 @@ const ProjectDetails2Dark = () => {
         <ProjectDetails2Header />
         <ProjectDetails2Introduction />
         <ProjectDetails2Images />
-        <ProjectDetailsDescription />
         <ProjectDetailsVideo
         videoBackground="/img/portfolio/project2/bg.jpg"
-        videoUrl="https://www.facebook.com/OdysseeResortZarzis/videos/1073016356366796/"
+        videoUrl="https://www.youtube.com/watch?v=EiqYC-xeRd0&list=TLGGtfsnXd3skJowNzAxMjAyNA&t"
         />
-
-        <NextProject
-          projectImage="/img/portfolio/project1/bg.jpg"
-          projectTitle="Natural plus modern."
-        />
-        <SmallFooter />
+        <Footer noSubBG />
       </DarkTheme>
     );
 }

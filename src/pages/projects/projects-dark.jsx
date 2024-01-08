@@ -5,6 +5,8 @@ import Navbar from "../../components/Navbar";
 import SmallFooter from "../../components/Small-footer";
 import PortfolioCustomColumn from "../../components/Portfolio-custom-column";
 import CallToAction from "../../components/Call-to-action";
+import Footer from "../../components/Footer";
+
 
 const Works3Dark = () => {
   const fixedHeader = React.useRef(null);
@@ -58,13 +60,13 @@ const Works3Dark = () => {
             <div className="col-lg-9 col-md-11 static">
               <div className="capt mt-50">
                 <div className="parlx">
-                  <h2 className="custom-font">My amazing works</h2>
+                  <h2 className="custom-font">Explore Our Projects</h2>
                   <p>
-                    Creative way to showcase your works at their absolute best.
+                  Step into our world of creativity and innovation.
                   </p>
                 </div>
                 <div className="bactxt custom-font valign">
-                  <span className="full-width">Works</span>
+                  <span className="full-width">Projects</span>
                 </div>
               </div>
             </div>
@@ -74,7 +76,7 @@ const Works3Dark = () => {
       <div ref={MainContent} className="main-content">
         <CallToAction theme="dark" />
         <PortfolioCustomColumn column={2}/>
-        <SmallFooter />
+        <Footer noSubBG />
       </div>
     </DarkTheme>
   );

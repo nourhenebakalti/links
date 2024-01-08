@@ -40,12 +40,12 @@ const ContactWithMap = ({ theme = "dark" }) => {
                     formData.append('email', values.email);
                     formData.append('message', values.message);
 
-                    const res = await axios.post('/contact.php', formData);
+                    const res = await axios.post('/api/send-mail', formData);
 
                     if (!res) return;
 
                     messageRef.current.innerText =
-                      "Your Message has been successfully sent. I will contact you soon.";
+                      "Your Message has been successfully sent. We will contact you soon.";
                     // Reset the values
                     values.name = "";
                     values.email = "";
@@ -96,7 +96,7 @@ const ContactWithMap = ({ theme = "dark" }) => {
                           />
                         </div>
 
-                        <button type="submit" className={`btn-curve ${theme === 'dark' ? 'btn-lit':'btn-color'} disabled`}>
+                        <button type="submit" className={`btn-curve ${theme === 'dark' ? 'btn-lit':'btn-color'}`}>
                           <span>Send Message</span>
                         </button>
                       </div>
@@ -115,9 +115,9 @@ const ContactWithMap = ({ theme = "dark" }) => {
                 </Split>
                 <div className="item mb-40">
                   <h5>
-                    <a href="#0">Email@example.com</a>
+                    <a href="mailto:Contact@linksprod.com">Contact@linksprod.com</a>
                   </h5>
-                  <h5>+4.930.705.5448</h5>
+                  <h5>(+216) 21000950</h5>
                 </div>
                 <Split>
                   <h3 className="custom-font wow" data-splitting>
@@ -126,23 +126,17 @@ const ContactWithMap = ({ theme = "dark" }) => {
                 </Split>
                 <div className="item">
                   <h6>
-                    295 Witting Streets Suite 666,
+                  Avenue Alain Savary 2036 
                     <br />
-                    Melbourne, Australia
+                    Tunis, Tunisie
                   </h6>
                 </div>
-                <div className="social mt-50">
-                  <a href="#0" className="icon">
+                <div className="social">
+                  <a href="https://www.facebook.com/LinKs.tn" className="icon">
                     <i className="fab fa-facebook-f"></i>
                   </a>
-                  <a href="#0" className="icon">
-                    <i className="fab fa-twitter"></i>
-                  </a>
-                  <a href="#0" className="icon">
-                    <i className="fab fa-pinterest"></i>
-                  </a>
-                  <a href="#0" className="icon">
-                    <i className="fab fa-behance"></i>
+                  <a href="https://www.instagram.com/links.station/" className="icon">
+                    <i className="fab fa-instagram"></i>
                   </a>
                 </div>
               </div>
@@ -161,12 +155,6 @@ const ContactWithMap = ({ theme = "dark" }) => {
 
       <footer className="footer-half sub-bg">
         <div className="container">
-          <div className="copyrights text-center mt-0">
-            <p>
-              © 2022, Avo Template. Made with passion by 
-              <a href="#0">ThemesCamp</a>.
-            </p>
-          </div>
         </div>
       </footer>
     </>

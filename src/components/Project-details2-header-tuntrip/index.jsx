@@ -5,7 +5,7 @@ const ProjectDetails2Header = () => {
   return (
     <section
       className="page-header proj-det bg-img parallaxie valign"
-      style={{ backgroundImage: "url(/img/portfolio/project2/bgexist.jpg)" }}
+      style={{ backgroundImage: "url(/img/portfolio/project2/bg.jpg)" }}
       data-overlay-dark="4"
     >
       <div className="container">
@@ -13,7 +13,7 @@ const ProjectDetails2Header = () => {
           <div className="col-lg-7 col-md-9">
             <div className="cont">
               <h6>Client</h6>
-              <h2>Exist</h2>
+              <h2>Kab Corner</h2>
             </div>
           </div>
         </div>
@@ -22,22 +22,22 @@ const ProjectDetails2Header = () => {
             <div className="item mt-30">
               <h6>Client Type</h6>
               <p>
-                <a href="#0">Design Mode</a>
+                <a href="#0">Fast Food</a>
               </p>
             </div>
           </div>
           <div className="col-lg-3">
             <div className="item mt-30">
               <h6>Contract Term</h6>
-              <p>3 weeks</p>
+              <p>6 Months</p>
             </div>
           </div>
           <div className="col-lg-3">
             <div className="item mt-30">
               <h6>Categories</h6>
               <p>
-                <Link href="/works/works-dark">Design</Link> ,
-                <Link href="/works/works-dark">Fashion</Link>
+                <Link href="/works/works-dark">Fast Food</Link> ,
+                <Link href="/works/works-dark">Restaurant</Link>
               </p>
             </div>
           </div>

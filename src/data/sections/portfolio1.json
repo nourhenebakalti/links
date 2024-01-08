@@ -3,7 +3,7 @@
     "id": 1,
     "image": "/img/portfolio/mas/04.jpg",
     "title": "Odyssee Resort - Penelope",
-    "tags": ["Design", "WordPress"],
+    "tags": ["Resort"],
     "filterCategory": ["tourism"],
     "link": "/odyssee/odyssee-dark"
   },
@@ -11,7 +11,7 @@
     "id": 2,
     "image": "/img/portfolio/mas/02.jpg",
     "title": "Tunisia Trip",
-    "tags": ["Design", "WordPress"],
+    "tags": ["Tourism"],
     "filterCategory": ["tourism"],
     "link": "/tunisiatrip/tunisiatrip-dark"
   },
@@ -19,14 +19,14 @@
     "id": 3,
     "image": "/img/portfolio/mas/03.jpg",
     "title": "Kabcorner",
-    "tags": ["Design", "WordPress"],
+    "tags": ["Restaurant"],
     "filterCategory": ["restaurants"],
     "link": "/kabcorner/kabcorner-dark"
   },
   {"id": 4,
     "image": "/img/portfolio/mas/01.jpg",
     "title": "Exist",
-    "tags": ["Design", "WordPress"],
+    "tags": ["Fashion"],
     "filterCategory": ["fashion"],
     "link": "/exist/exist-dark"
   },
@@ -34,7 +34,7 @@
     "id": 5,
     "image": "/img/portfolio/mas/05.jpg",
     "title": "Royal Tulip",
-    "tags": ["Design", "WordPress"],
+    "tags": ["Hotel"],
     "filterCategory": ["tourism"],
     "link": "/royaltulip/royaltulip-dark"
   }

@@ -15,12 +15,15 @@ const ProjectDetails2Introduction = () => {
           <div className="col-lg-8 offset-lg-1 col-md-8">
             <div className="text js-scroll__content">
               <p className="extra-text">
-              We provided the following services for our client "Exist" in order to ensure:
+              We provided the following services for our client "Penelope Thalasso & Spa" in order to ensure:
               </p>
 
               <ul className="smp-list mt-30">
-                <li>Commercial Video [Directed by: Oussema Bouaissi]</li>
-               </ul>
+                <li>Content Production</li>
+                <li>Digital Marketing Campaigns</li>
+                <li>Social Paid Advertising</li>
+                <li>Social Media Management</li>
+              </ul>
             </div>
           </div>
         </div>

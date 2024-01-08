@@ -1,13 +1,15 @@
 import React from 'react'
 import DarkTheme from "../../layouts/Dark";
 import Navbar from "../../components/Navbar";
-import ProjectDetails2Header from "../../components/Project-details2-header";
-import ProjectDetails2Introduction from "../../components/Project-details2-introduction";
-import ProjectDetails2Images from "../../components/Project-details2-images";
+import ProjectDetails2Header from "../../components/Project-details2-header-royal";
+import ProjectDetails2Introduction from "../../components/Project-details2-introduction-royal";
+import ProjectDetails2Images from "../../components/Project-details2-images-royal";
 import ProjectDetailsDescription from "../../components/Project-details-description";
 import ProjectDetailsVideo from "../../components/Project-details-video";
-import NextProject from "../../components/Next-project";
-import SmallFooter from "../../components/Small-footer";
+import Footer from "../../components/Footer";
+
+//import NextProject from "../../components/Next-project";
+//import SmallFooter from "../../components/Small-footer";
 
 
 const ProjectDetails2Dark = () => {
@@ -40,12 +42,7 @@ const ProjectDetails2Dark = () => {
         videoBackground="/img/portfolio/project2/bg.jpg"
         videoUrl="https://www.facebook.com/OdysseeResortZarzis/videos/1073016356366796/"
         />
-
-        <NextProject
-          projectImage="/img/portfolio/project1/bg.jpg"
-          projectTitle="Natural plus modern."
-        />
-        <SmallFooter />
+        <Footer noSubBG />
       </DarkTheme>
     );
 }

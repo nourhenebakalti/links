@@ -42,13 +42,12 @@ const PortfolioCustomColumn = ({
         <div className="row">
           {!hideFilter && (
             <div
-              className={`filtering ${
-                filterPosition === "center"
+              className={`filtering ${filterPosition === "center"
                   ? "text-center"
                   : filterPosition === "left"
-                  ? "text-left"
-                  : "text-right"
-              } col-12`}
+                    ? "text-left"
+                    : "text-right"
+                } col-12`}
             >
               <div className="filter">
                 <span data-filter="*" className="active">
@@ -65,19 +64,17 @@ const PortfolioCustomColumn = ({
             {portfolio1Data.map((item, index) => (
               <div
                 key={item.id}
-                className={`${
-                  column === 3
+                className={`${column === 3
                     ? "col-lg-4 col-md-6"
                     : column === 2
-                    ? "col-md-6"
-                    : "col-12"
-                } items ${item.filterCategory} wow fadeInUp ${
-                  item.id === 2 && column == 3
+                      ? "col-md-6"
+                      : "col-12"
+                  } items ${item.filterCategory} wow fadeInUp ${item.id === 2 && column == 3
                     ? "lg-mr"
                     : item.id === 1 && column == 2
-                    ? "lg-mr"
-                    : ""
-                }`}
+                      ? "lg-mr"
+                      : ""
+                  }`}
                 data-wow-delay=".4s"
               >
                 <div className="item-img">
@@ -85,6 +82,10 @@ const PortfolioCustomColumn = ({
                     <a className="imago wow">
                       <img src={item.image} alt="image" />
                       <div className="item-img-overlay"></div>
+                      <div className="item-hover">
+                        <h5>{item.title}</h5>
+                        <p>Explore Project</p>
+                      </div>
                     </a>
                   </Link>
                 </div>

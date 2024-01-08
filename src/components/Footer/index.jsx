@@ -27,32 +27,26 @@ const Footer = ({ noSubBG }) => {
               </div>
               <div className="con-info custom-font">
                 <ul>
+                  <a href="mailto:Contact@linksprod.com"> 
+                    <span>Email : </span> Contact@linksprod.com 
+                  </a>
                   <li>
-                    <span>Email : </span> Avo_support@website.com
+                    <span>Address : </span> Avenue Alain Savary 2036 
+                    Tunis, Tunisie
                   </li>
                   <li>
-                    <span>Address : </span> A32 , Ave 15th Street, Door 211, San
-                    Franciso, USA 32490.
-                  </li>
-                  <li>
-                    <span>Phone : </span> (+1) 2345 678 44 88
+                    <span>Phone : </span> (+216) 21000950
                   </li>
                 </ul>
               </div>
               <div className="social-icon">
                 <h6 className="custom-font stit simple-btn">Follow Us</h6>
                 <div className="social">
-                  <a href="#0" className="icon">
+                  <a href="https://www.facebook.com/LinKs.tn" className="icon">
                     <i className="fab fa-facebook-f"></i>
                   </a>
-                  <a href="#0" className="icon">
-                    <i className="fab fa-twitter"></i>
-                  </a>
-                  <a href="#0" className="icon">
-                    <i className="fab fa-pinterest"></i>
-                  </a>
-                  <a href="#0" className="icon">
-                    <i className="fab fa-behance"></i>
+                  <a href="https://www.instagram.com/links.station/" className="icon">
+                    <i className="fab fa-instagram"></i>
                   </a>
                 </div>
               </div>
@@ -60,8 +54,8 @@ const Footer = ({ noSubBG }) => {
           </div>
           <div className="col-lg-5 offset-lg-2">
             <div className="subscribe mb-50">
-              <h6 className="custom-font stit simple-btn">Newslatter</h6>
-              <p>Sign up for subscribe out newsletter!</p>
+              <h6 className="custom-font stit simple-btn">Start your journey</h6>
+              <p>Enter your email and we will contact you!</p>
               <Formik
                 initialValues={{
                   subscribe: "",
@@ -94,23 +88,18 @@ const Footer = ({ noSubBG }) => {
             <div className="insta">
               <h6 className="custom-font stit simple-btn">Instagram Post</h6>
               <div className="insta-gallary">
-                <a href="#0">
+                <a href="https://www.instagram.com/p/CnsEO8zB2I4/">
                   <img src="/img/insta/1.jpg" alt="" />
                 </a>
-                <a href="#0">
+                <a href="https://www.instagram.com/p/Cnr8LruhY_C/">
                   <img src="/img/insta/2.jpg" alt="" />
                 </a>
-                <a href="#0">
+                <a href="https://www.instagram.com/p/Cl1CRVKDqQ2/">
                   <img src="/img/insta/3.jpg" alt="" />
                 </a>
               </div>
             </div>
           </div>
-        </div>
-        <div className="copyrights text-center">
-          <p>
-            © 2022, Avo Template. Made with passion by <a href="#0">ThemesCamp</a>.
-          </p>
         </div>
       </div>
     </footer>

@@ -7,8 +7,8 @@ import BlcSec from "../../components/Blc-sec";
 import Intro from "../../components/Intro-txt2";
 import Features from "../../components/Features";
 import ServicesBottom from "../../components/Services6";
-import Testimonials1 from "../../components/Testimonials1";
-import Clients from "../../components/Clients1";
+//import Testimonials1 from "../../components/Testimonials1";
+//import Clients from "../../components/Clients1";
 import CallToAction from "../../components/Call-to-action";
 import Footer from "../../components/Footer";
 
@@ -51,10 +51,8 @@ const Homepage6 = () => {
         <BlcSec />
         <Features />
         <ServicesBottom />
-        <Testimonials1 />
-        <Clients theme="dark" />
         <CallToAction theme="dark" />
-        <Footer noSubBG />
+       <Footer noSubBG /> 
       </div>
     </DarkTheme>
   );
