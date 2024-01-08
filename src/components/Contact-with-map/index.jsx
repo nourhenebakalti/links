@@ -14,6 +14,13 @@ const ContactWithMap = ({ theme = "dark" }) => {
     }
     return error;
   }
+  const formDataToJson = (formData) => {
+    const json = {};
+    formData.forEach((value, key) => {
+      json[key] = value;
+    });
+    return json;
+  };
   const sendMessage = (ms) => new Promise((r) => setTimeout(r, ms));
   return (
     <>
@@ -40,8 +47,16 @@ const ContactWithMap = ({ theme = "dark" }) => {
                     formData.append('email', values.email);
                     formData.append('message', values.message);
 
-                    const res = await axios.post('/api/send-mail', formData);
+                    console.log(formData);
 
+                    const jsonData = formDataToJson(formData);
+                    const jsonString = JSON.stringify(jsonData);
+
+                const res = await axios.post('/api/send-mail', jsonString, {
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                });
                     if (!res) return;
 
                     messageRef.current.innerText =
@@ -53,7 +68,7 @@ const ContactWithMap = ({ theme = "dark" }) => {
                     // clear message
                     setTimeout(() => {
                       messageRef.current.innerText = "";
-                    }, 2000);
+                    }, 8000);
                   }}
                 >
                   {({ errors, touched }) => (

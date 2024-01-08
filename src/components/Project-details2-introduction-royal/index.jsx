@@ -15,7 +15,7 @@ const ProjectDetails2Introduction = () => {
           <div className="col-lg-8 offset-lg-1 col-md-8">
             <div className="text js-scroll__content">
               <p className="extra-text">
-              We provided the following services for our client "Kab Corner" in order to ensure:
+              We provided the following services for our client &quot;Kab Corner&quot; in order to ensure:
               </p>
 
               <ul className="smp-list mt-30">

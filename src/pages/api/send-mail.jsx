@@ -10,14 +10,14 @@ const sendEmail = async (req, res) => {
     port: 587, // Outlook SMTP port
     secure: false,
     auth: {
-      user: 'malek.guemri@esprit.tn', // Your Gmail address
-      pass: '23808542!Mg', // Your Gmail password
+      user: 'linksprod@outlook.com', // Your Gmail address
+      pass: '191JFT1237', // Your Gmail password
     },
   });
 
   // Email content
   const mailOptions = {
-    from: 'malek.guemri@esprit.tn', // Your Gmail address
+    from: 'linksprod@outlook.com', // Your Gmail address
     to: 'lnksclient@gmail.com', // Recipient's email address
     subject: 'New message from contact form',
     text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,

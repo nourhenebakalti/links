@@ -17,10 +17,10 @@ const ContactHeader = ({ sliderRef }) => {
             <div className="capt mt-50">
               <div className="parlx">
                 <h2 className="custom-font">
-                 Ready to revolutionize your brand's journey?
+                 Ready to revolutionize your brand&apos;s journey?
                 </h2>
                 <p>
-                Contact us today to start a conversation about unlocking your brand's full potential. Let's create a success story together.
+                Contact us today to start a conversation about unlocking your brand&apos;s full potential. Let&apos;s create a success story together.
                 </p>
               </div>
 
