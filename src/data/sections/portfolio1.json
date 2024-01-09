@@ -13,7 +13,7 @@
     "title": "Tunisia Trip",
     "tags": ["Tourism"],
     "filterCategory": ["tourism"],
-    "link": "/tunisiatrip/tunisiatrip-dark"
+    "link": ""
   },
   {
     "id": 3,
@@ -36,6 +36,6 @@
     "title": "Royal Tulip",
     "tags": ["Hotel"],
     "filterCategory": ["tourism"],
-    "link": "/royaltulip/royaltulip-dark"
+    "link": ""
   }
 ]

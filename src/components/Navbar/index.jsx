@@ -21,7 +21,7 @@ const Navbar = ({ lr, nr, theme }) => {
       }`}
     >
       <div className="container">
-        <Link href="/">
+        <Link href="/home/home6-dark">
           <a className="logo">
             {theme ? (
               theme === "themeL" ? (

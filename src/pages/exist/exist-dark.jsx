@@ -37,7 +37,7 @@ const ProjectDetails2Dark = () => {
         <ProjectDetails2Introduction />
         <ProjectDetails2Images />
         <ProjectDetailsVideo
-        videoBackground="/img/portfolio/project2/bg.jpg"
+        videoBackground="/img/portfolio/project2/bgexist.png"
         videoUrl="https://www.youtube.com/watch?v=rxiOYX2fwP0&list=TLGGoooQlizkwvcwODAxMjAyNA&t"
         />
         <Footer noSubBG />

@@ -1,7 +1,7 @@
-import React from 'react';
 import { FacebookProvider, EmbeddedVideo } from 'react-facebook';
 import YouTube from 'react-youtube';
 import 'react-modal-video/css/modal-video.css';
+import React from 'react';
 
 const ProjectDetailsVideo = ({ videoBackground, videoUrl }) => {
   const [isOpen, setOpen] = React.useState(false);
