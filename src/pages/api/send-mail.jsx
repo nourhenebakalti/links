@@ -1,5 +1,6 @@
 import nodemailer from 'nodemailer';
 
+require('dotenv').config();
 const sendEmail = async (req, res) => {
   // Extract form data from the request
   const { name, email, message } = req.body;
@@ -10,15 +11,15 @@ const sendEmail = async (req, res) => {
     port: 587, // Outlook SMTP port
     secure: false,
     auth: {
-      user: 'linksprod@outlook.com', // Your Gmail address
-      pass: '191JFT1237', // Your Gmail password
+      user: process.env.MAIL, // Your Gmail address
+      pass: process.env.PASS, // Your Gmail password
     },
   });
 
   // Email content
   const mailOptions = {
     from: 'linksprod@outlook.com', // Your Gmail address
-    to: 'lnksclient@gmail.com', // Recipient's email address
+    to: 'contact@linksprod.com', // Recipient's email address
     subject: 'New message from contact form',
     text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
   };
