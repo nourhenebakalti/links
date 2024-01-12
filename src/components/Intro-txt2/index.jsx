@@ -8,8 +8,8 @@ const IntroTxt2 = () => {
   }, []);
 
   return (
-    <header className="slider simpl fixed-slider bg-img valign" style={{ backgroundImage: "url(/img/slid/a2.jpg)" }} data-overlay-dark="6">
-      <div className="container">
+    <header className="slider simpl bg-img valign" style={{ backgroundImage: "url(/img/slid/a2.jpg)" }} data-overlay-dark="6">
+      <div className="container fixed-slider">
         <div className="row">
           <div className="col-lg-9">
             <div className="caption center mt-50">
@@ -17,7 +17,7 @@ const IntroTxt2 = () => {
               <h1>Elevate Your Brand with LINKS STATION</h1>
               <p>Explore a world where results are not just expected, but guaranteed.</p>
               <a className="btn-curve btn-lit mt-40">
-                <Link href="/contact/contact-dark">
+                <Link href="/contact">
                   <span>Get Started Now</span>
                 </Link>
               </a>

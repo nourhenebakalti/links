@@ -116,6 +116,7 @@ h1 {
 
 h2 {
   font-size: 40px;
+  letter-spacing: 3px;
 }
 
 h3 {
@@ -302,6 +303,7 @@ span:hover {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  margin-top: 200;
 }
 
 .primery-shadow {
@@ -2217,6 +2219,7 @@ body {
   bottom: 0;
   left: 0;
   background-size: cover;
+  background-position: center;
 }
 
 .slider .parallax-slider .swiper-slide-active .caption h1 {
@@ -2297,6 +2300,7 @@ body {
   -webkit-transition-delay: .8s;
   -o-transition-delay: .8s;
   transition-delay: .8s;
+  font-size: 20px;
 }
 
 .slider .parallax-slider .caption .btn-curve {
@@ -5323,6 +5327,10 @@ header.simpl .caption .btn-curve {
   margin-top: 40px;
   position: relative;
   z-index: 5;
+}
+
+.marg {
+  margin-top: 100;
 }
 
 .testim-box .swiper-container .controls .swiper-nav-ctrl {

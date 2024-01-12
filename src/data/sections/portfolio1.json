@@ -2,14 +2,16 @@
   {
     "id": 1,
     "image": "/img/portfolio/mas/04.jpg",
+    "image1": "/img/portfolio/mas/03.jpg",
     "title": "Odyssee Resort - Penelope",
     "tags": ["Resort"],
     "filterCategory": ["tourism"],
-    "link": "/odyssee/odyssee-dark"
+    "link": "/odyssee"
   },
   {
     "id": 2,
     "image": "/img/portfolio/mas/02.jpg",
+    "image1": "/img/portfolio/mas/04.jpg",
     "title": "Tunisia Trip",
     "tags": ["Tourism"],
     "filterCategory": ["tourism"],
@@ -18,21 +20,24 @@
   {
     "id": 3,
     "image": "/img/portfolio/mas/03.jpg",
+    "image1": "/img/portfolio/mas/04.jpg",
     "title": "Kabcorner",
     "tags": ["Restaurant"],
     "filterCategory": ["restaurants"],
-    "link": "/kabcorner/kabcorner-dark"
+    "link": "/kabcorner"
   },
   {"id": 4,
     "image": "/img/portfolio/mas/01.jpg",
+    "image1": "/img/portfolio/mas/04.jpg",
     "title": "Exist",
     "tags": ["Fashion"],
     "filterCategory": ["fashion"],
-    "link": "/exist/exist-dark"
+    "link": "/exist"
   },
   {
     "id": 5,
     "image": "/img/portfolio/mas/05.jpg",
+    "image1": "/img/portfolio/mas/04.jpg",
     "title": "Royal Tulip",
     "tags": ["Hotel"],
     "filterCategory": ["tourism"],

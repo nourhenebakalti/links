@@ -28,7 +28,7 @@ const ProjectDetails2Header = () => {
           </div>
           <div className="col-lg-3">
             <div className="item mt-30">
-              <h6>Contract Term</h6>
+              <h6>Services</h6>
               <p>6 Months</p>
             </div>
           </div>

@@ -10,9 +10,6 @@ import {
 } from "../../common/navbar";
 
 const Navbar = ({ lr, nr, theme }) => {
-  React.useEffect(() => {
-    handleSearch();
-  }, []);
   return (
     <nav
       ref={nr}
@@ -21,7 +18,7 @@ const Navbar = ({ lr, nr, theme }) => {
       }`}
     >
       <div className="container">
-        <Link href="/home/home6-dark">
+        <Link href="/home">
           <a className="logo">
             {theme ? (
               theme === "themeL" ? (
@@ -53,7 +50,7 @@ const Navbar = ({ lr, nr, theme }) => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
           <li className="nav-item">
-              <Link href="/home/home6-dark">
+              <Link href="/home">
                 <a className="nav-link">Home</a>
               </Link>
             </li>
@@ -65,38 +62,16 @@ const Navbar = ({ lr, nr, theme }) => {
             </li>
             */}
             <li className="nav-item">
-              <Link href="/projects/projects-dark">
+              <Link href="/projects">
                 <a className="nav-link">Projects</a>
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/contact/contact-dark">
+              <Link href="/contact">
                 <a className="nav-link">Contact</a>
               </Link>
             </li>
           </ul>
-          <div className="search">
-            <span className="icon pe-7s-search cursor-pointer"></span>
-            <div className="search-form text-center custom-font">
-              <Formik
-                initialValues={{
-                  search: "",
-                }}
-                onSubmit={async (values) => {
-                  alert(JSON.stringify(values, null, 2));
-                  // Reset the values
-                  values.search = "";
-                }}
-              >
-                {({ errors, touched }) => (
-                  <Form>
-                    <Field type="text" name="search" placeholder="Search" />
-                  </Form>
-                )}
-              </Formik>
-              <span className="close pe-7s-close cursor-pointer"></span>
-            </div>
-          </div>
         </div>
       </div>
     </nav>

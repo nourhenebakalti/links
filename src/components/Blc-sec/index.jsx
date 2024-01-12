@@ -36,12 +36,12 @@ const BlcSec = () => {
                 </p>
               </Split>
               <Split>
-                <Link href="/projects/projects-dark">
+                <Link href="/projects">
                   <a
                     className="simple-btn custom-font mt-20 wow words chars splitting"
                     data-splitting
                   >
-                    <span>Know More</span>
+                    <span>Get Started</span>
                   </a>
                 </Link>
               </Split>

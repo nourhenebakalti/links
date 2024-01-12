@@ -5,7 +5,7 @@ module.exports = {
     return [
       {
         source: '/',
-        destination: '/home/home6-dark',
+        destination: '/home',
         permanent: true,
         basePath: false,
       },

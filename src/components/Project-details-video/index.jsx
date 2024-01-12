@@ -18,11 +18,13 @@ const ProjectDetailsVideo = ({ videoBackground, videoUrl }) => {
       <div className="container-fluid" style={{ textAlign: 'center' }}>
         {isYouTubeVideo ? (
           // Use react-youtube component for YouTube videos
-          <YouTube videoId={getYouTubeVideoId(videoUrl)}/>
+          <YouTube videoId={getYouTubeVideoId(videoUrl)} 
+          containerClassName="youtube-container" // Add a custom class for styling
+          opts={{ width: '100%', height: '500px' }}/>
         ) : (
           // Use react-facebook EmbeddedVideo component for Facebook videos
           <FacebookProvider appId="your_facebook_app_id">
-            <EmbeddedVideo href={videoUrl} width={1200} />
+            <EmbeddedVideo href={videoUrl} width={1400} height={600} />
           </FacebookProvider>
         )}
       </div>

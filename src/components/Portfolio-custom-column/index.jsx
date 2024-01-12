@@ -12,6 +12,7 @@ const PortfolioCustomColumn = ({
   hideSectionTitle,
 }) => {
   const [pageLoaded, setPageLoaded] = React.useState(false);
+  const [isHovered, setIsHovered] = React.useState(false);
   React.useEffect(() => {
     setPageLoaded(true);
     if (pageLoaded) {
@@ -80,7 +81,12 @@ const PortfolioCustomColumn = ({
                 <div className="item-img">
                   <Link href={item.link}>
                     <a className="imago wow">
-                      <img src={item.image} alt="image" />
+                      <img
+                        src={isHovered? item.image1 : item.image}
+                        alt="Image"
+                        onMouseEnter={() => setIsHovered(true)}
+                        onMouseLeave={() => setIsHovered(false)}
+                      />
                       <div className="item-img-overlay"></div>
                       <div className="item-hover">
                         <h5>{item.title}</h5>

@@ -2,25 +2,28 @@
   {
     "id": 1,
     "title": {
-      "first": "Unique",
-      "second": "brand Stories"
+      "first": "Welcome to",
+      "second": "LINKS     ‎     ‎  STATION"
     },
-    "content": "If you need to redesign your new project, new visual strategy, ux structure or you do have some cool ideas for collaboration.",
-    "image": "/img/slid/01.jpg"
+    "content": "Explore a world where results are not just expected, but guaranteed.",
+    "image": ""
   },
   {
     "id": 2,
     "title": {
-      "first": "Digital",
-      "second": "Design Awards"
+      "first": "We ‎ ‎   redefine",
+      "second": "Possibilities"
     },
-    "content": "If you need to redesign your new project, new visual strategy, ux structure or you do have some cool ideas for collaboration.",
-    "image": "/img/slid/03.jpg"
+    "content": " of business development and growth through a unique fusion of creativity, specialization, and cutting-edge strategies.",
+"image": ""
   },
   {
     "id": 3,
-    "title": "Original Solutions",
-    "content": "If you need to redesign your new project, new visual strategy, ux structure or you do have some cool ideas for collaboration.",
-    "image": "/img/slid/02.jpg"
+    "title":{
+      "first": "Your brand isn't just seen,",
+      "second": "It's Experienced."
+    },
+    "content": "Transform your brand into a masterpiece of innovation and creativity with LINKS",
+    "image": ""
   }
 ]
