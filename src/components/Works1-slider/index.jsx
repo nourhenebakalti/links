@@ -1,5 +1,5 @@
 import React from "react";
-import works1SliderData from "../../data/sections/works1Slider.json";
+import works1SliderData from "../../data/sections/works1SliderPenelope.json";
 import { Swiper, SwiperSlide } from "swiper/react";
 // import Swiper core and required modules
 import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper";
