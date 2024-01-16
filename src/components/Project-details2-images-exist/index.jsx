@@ -23,7 +23,7 @@ const ProjectDetails2Images = () => {
             </div>
             <div className="col-md-3 pr-0">
               <a>
-                <img alt="Project Image 4" src="/img/portfolio/project2/5exist.png" />
+                <img alt="Project Image 4" src="/img/portfolio/project2/2exist.jpg" />
               </a>
             </div>
             <div className="col-md-3 pr-0">
