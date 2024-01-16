@@ -5425,7 +5425,7 @@ header.simpl .caption .btn-curve {
 .block-sec .vid-area .vid-icon .vid:after {
   content: '';
   position: absolute;
-  top: -10px;
+  top: -100px;
   left: -10px;
   right: -10px;
   bottom: -10px;
@@ -5440,7 +5440,7 @@ header.simpl .caption .btn-curve {
 }
 
 .block-sec .vid-area .cont {
-  margin-top: 40px;
+  margin-top: 0px;
 }
 
 .block-sec .vid-area .cont h6 {

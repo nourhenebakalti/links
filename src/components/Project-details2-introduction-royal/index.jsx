@@ -13,18 +13,16 @@ const ProjectDetails2Introduction = () => {
             </div>
           </div>
           <div className="col-lg-8 offset-lg-1 col-md-8">
-            <div className="text js-scroll__content">
+          <div className="text js-scroll__content">
               <p className="extra-text">
-              We provided the following services for our client &quot;Kab Corner&quot; in order to ensure:
+              We provided the following services for our client &quot;Royal Tulip&quot; in order to ensure:
               </p>
 
               <ul className="smp-list mt-30">
                 <li>Content Production</li>
-                <li>Digital identity creation</li>
                 <li>Digital Marketing Campaigns</li>
                 <li>Social Paid Advertising</li>
                 <li>Social Media Management</li>
-                <li>Product Photography & Tv Menu Creation</li>
               </ul>
             </div>
           </div>

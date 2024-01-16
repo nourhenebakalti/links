@@ -6,6 +6,7 @@ import ProjectDetails2Introduction from "../components/Project-details2-introduc
 import ProjectDetails2Images from "../components/Project-details2-images-odyssee";
 import ProjectDetailsDescription from "../components/Project-details-description";
 import ProjectDetailsVideo from "../components/Project-details-video";
+import Works1Slider from "../components/Works1-slider";
 import Footer from "../components/Footer";
 
 //import NextProject from "../../components/Next-project";
@@ -42,6 +43,12 @@ const ProjectDetails2Dark = () => {
         videoBackground="/img/portfolio/project2/bg.jpg"
         videoUrl="https://www.facebook.com/OdysseeResortZarzis/videos/1073016356366796/"
         />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <Works1Slider/>
         <Footer noSubBG />
       </DarkTheme>
     );

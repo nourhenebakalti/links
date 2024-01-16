@@ -15,7 +15,8 @@ const Services6 = () => {
               <div className="col-lg-4 wow fadeInUp" data-wow-delay={`${(index + 1) * 0.3}s`} key={service.id}>
                 <div className={`item simpl ${index !== servicesData.length - 1 ? 'md-mb50':''}`}>
                   <span className={`icon ${service.icon}`}></span>
-                  <h6>{ service.title }</h6>
+                  <h5>{ service.title }</h5>
+                  <h6>{ service.title2 }</h6>
                   <p>{ service.content }</p>
                 </div>
               </div>

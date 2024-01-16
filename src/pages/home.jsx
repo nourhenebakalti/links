@@ -8,6 +8,7 @@ import BlcSec from "../components/Blc-sec";
 import Features from "../components/Features";
 import ServicesBottom from "../components/Services6";
 import CallToAction from "../components/Call-to-action";
+import NumbersWithVideo from "../components/Numbers-with-video";
 import Footer from "../components/Footer";
 import IntroWithSlider1 from "../components/Intro-with-slider1";
 
@@ -48,6 +49,14 @@ const Homepage6 = () => {
       <div ref={MainContent} className="main-content">
         <BlcSec />
         <Features />
+        <NumbersWithVideo/> 
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+
         <ServicesBottom />
         <CallToAction theme="dark" />
        <Footer noSubBG /> 

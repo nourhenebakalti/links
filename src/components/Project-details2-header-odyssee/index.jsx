@@ -22,14 +22,14 @@ const ProjectDetails2Header = () => {
             <div className="item mt-30">
               <h6>Client Type</h6>
               <p>
-                <a href="#0">Hotel</a>
+                <a href="#0">Resort</a>
               </p>
             </div>
           </div>
           <div className="col-lg-3">
             <div className="item mt-30">
-              <h6>Services</h6>
-              <p>6 Months</p>
+              <h6>Contract Term</h6>
+              <p>1 Year</p>
             </div>
           </div>
           <div className="col-lg-3">
