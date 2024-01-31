@@ -16,7 +16,7 @@ const ProjectDetails2Introduction = () => {
             <div className="text js-scroll__content">
               <p className="extra-text">
               
-Dive into the dynamic world of Triangle Fitness through our eye-catching videos. Feel the pulse of thrilling sports events and bask in the gym's vibrant spirit. <br></br>We've curated content that ignites every social media platform.
+Dive into the dynamic world of Triangle Fitness through our eye-catching videos. Feel the pulse of thrilling sports events and bask in the gym&apos;s vibrant spirit. <br></br>We&apos;ve curated content that ignites every social media platform.
               </p>
 
             </div>

@@ -16,7 +16,7 @@ const ProjectDetails2Introduction = () => {
           <div className="text js-scroll__content">
               <p className="extra-text">
               In spearheading the launch and crafting a dynamic digital strategy for 
- &quot;Royal Tulip&quot; "Royal Tulip Korbous Bay," we tailored a suite of services to elevate their brand presence. <br></br> This included creating a captivating digital identity, producing compelling videos, and capturing striking professional photographs for international tourism fairs. <br></br> <b>In addition to delivering the subsequent services:</b>
+ &quot; Royal Tulip Korbous Bay, &quot; we tailored a suite of services to elevate their brand presence. <br></br> This included creating a captivating digital identity, producing compelling videos, and capturing striking professional photographs for international tourism fairs. <br></br> <b>In addition to delivering the subsequent services:</b>
               </p>
 
               <ul className="smp-list mt-30">

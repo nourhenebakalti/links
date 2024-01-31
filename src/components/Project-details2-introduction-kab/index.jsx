@@ -16,7 +16,7 @@ const ProjectDetails2Introduction = () => {
             <div className="text js-scroll__content">
               <p className="extra-text">
               
-              We provided integral support to "Kabcorner" by orchestrating a seamless brand launch. Our expertise extended to optimizing both digital and physical communication, ensuring a professional and effective media presence throughout the process.
+              We provided integral support to &quot;Kabcorner&quot; by orchestrating a seamless brand launch. Our expertise extended to optimizing both digital and physical communication, ensuring a professional and effective media presence throughout the process.
               </p>
               <ul className="smp-list mt-30">
                 <li>Precision in Content Production: Crafting Digital Identities</li>

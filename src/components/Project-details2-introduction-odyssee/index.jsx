@@ -16,11 +16,11 @@ const ProjectDetails2Introduction = () => {
             <div className="text js-scroll__content">
               <p className="extra-text">
               We offered the following services to our client,
- &quot;Penelope Thalasso & Spa&quot; to ensure their participation in the tourism fair 'Les Termailes Paris'
+ &quot;Penelope Thalasso & Spa&quot; to ensure their participation in the tourism fair &quot; Les Termailes Paris&quot;
               </p>
 
               <ul className="smp-list mt-30">
-                <li>content production (Promotional Videos & Commercial Photoshoot)</li>
+                <li>content production: Promotional Videos & Commercial Photoshoot </li>
                 <li>Digital Marketing Campaigns</li>
                 <li>Social Paid Advertising</li>
                 <li>Social Media Management</li>
