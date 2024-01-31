@@ -15,27 +15,26 @@ const BlcSec = () => {
                 <span></span>
                 <span></span>
               </div>
-              <Split>
+              
                 <h2
                   className="extra-title wow words chars splitting"
                   data-splitting
                 >
                   We help to create strategies, design & development.
                 </h2>
-              </Split>
+              
             </div>
           </div>
           <div className="col-lg-5 valign">
             <div className="full-width">
-              <Split>
+              
                 <p className="wow txt words chars splitting" data-splitting>
                   We never underestimate any parts of each project as
                   they&apos;re all essential to meeting the ultimate goal.
                   you&apos;ll be engaged in with our positive and enthusiastic
                   attitude.
                 </p>
-              </Split>
-              <Split>
+              
                 <Link href="/projects">
                   <a
                     className="simple-btn custom-font mt-20 wow words chars splitting"
@@ -44,7 +43,7 @@ const BlcSec = () => {
                     <span>Get Started</span>
                   </a>
                 </Link>
-              </Split>
+            
             </div>
           </div>
         </div>

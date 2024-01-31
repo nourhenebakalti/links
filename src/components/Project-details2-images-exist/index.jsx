@@ -12,13 +12,13 @@ const ProjectDetails2Images = () => {
             <div className="col-md-3 pr-0">
               {/* Use a real image tag for images */}
               <a>
-                <img alt="Project Image 2" src="/img/portfolio/project2/1exist.png" />
+                <img alt="Project Image 2" src="/img/portfolio/project2/1exist.jpg" />
               </a>
             </div>
             <div className="col-md-3 pr-0">
               {/* Use a real video tag for videos */}
               <a>
-                <img alt="Project Image 1" src="/img/portfolio/project2/4exist.png" />
+                <img alt="Project Image 1" src="/img/portfolio/project2/4exist.jpg" />
               </a>
             </div>
             <div className="col-md-3 pr-0">
@@ -35,7 +35,7 @@ const ProjectDetails2Images = () => {
             <div className="col-12">
               {/* If this image doesn't have a link, consider removing the anchor tag */}
               <a>
-                <img alt="Project Image 5" src="/img/portfolio/project2/5exist.png" className="big-img" />
+                <img alt="Project Image 5" src="/img/portfolio/project2/5exist.jpg" className="big-img" />
               </a>
             </div>
           </div>

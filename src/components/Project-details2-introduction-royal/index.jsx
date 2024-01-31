@@ -15,14 +15,17 @@ const ProjectDetails2Introduction = () => {
           <div className="col-lg-8 offset-lg-1 col-md-8">
           <div className="text js-scroll__content">
               <p className="extra-text">
-              We provided the following services for our client &quot;Royal Tulip&quot; in order to ensure:
+              In spearheading the launch and crafting a dynamic digital strategy for 
+ &quot;Royal Tulip&quot; "Royal Tulip Korbous Bay," we tailored a suite of services to elevate their brand presence. <br></br> This included creating a captivating digital identity, producing compelling videos, and capturing striking professional photographs for international tourism fairs. <br></br> <b>In addition to delivering the subsequent services:</b>
               </p>
 
               <ul className="smp-list mt-30">
+                <li>Social Media Strategy</li>
                 <li>Content Production</li>
-                <li>Digital Marketing Campaigns</li>
                 <li>Social Paid Advertising</li>
                 <li>Social Media Management</li>
+                <li>Promotional Videos</li>
+                <li>Hotel Professional Photography</li>
               </ul>
             </div>
           </div>

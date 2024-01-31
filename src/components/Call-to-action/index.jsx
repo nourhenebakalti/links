@@ -12,17 +12,18 @@ const CallToAction = ({ img, theme, subBG }) => {
         <div className="row">
           <div className="col-md-8 col-lg-9">
             <div className="content sm-mb30">
-              <Split>
-                <h6 className="wow words chars splitting" data-splitting>
+              
+                <h6 className="wow words chars" data-splitting>
                   Ready to Elevate Your Brand?
                 </h6>
-                <h2
-                  className="wow words custom-font chars splitting"
+                <h1
+                  className="wow words custom-font chars"
                   data-splitting
                 >
-                  Elevate your brand with LINKS STATION! <b>unlock endless possibilities for success</b>.
+                  Elevate your brand with  </h1>
+                  <h2> LINKS STATION!
                 </h2>
-              </Split>
+             
             </div>
           </div>
 

@@ -30,7 +30,7 @@ const ProjectDetails2Header = () => {
             <div className="item mt-30">
               <h6>Categories</h6>
               <p>
-                <Link href="/works/works-dark">Fashion</Link> ,
+                <Link href="/works/works-dark">Fashion</Link> 
               </p>
             </div>
           </div>

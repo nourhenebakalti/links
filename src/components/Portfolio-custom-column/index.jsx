@@ -29,11 +29,11 @@ const PortfolioCustomColumn = ({
             <h6 className="wow fadeIn" data-wow-delay=".5s">
               Portfolio
             </h6>
-            <Split>
+            
               <h3 className="wow words chars splitting" data-splitting>
                 Our Works.
               </h3>
-            </Split>
+           
             <span className="tbg text-right">Portfolio</span>
           </div>
         </div>
@@ -57,6 +57,7 @@ const PortfolioCustomColumn = ({
                 <span data-filter=".tourism">Tourism</span>
                 <span data-filter=".restaurants">Restaurants</span>
                 <span data-filter=".fashion">Fashion</span>
+                <span data-filter=".Events">Events</span>
               </div>
             </div>
           )}

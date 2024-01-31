@@ -15,11 +15,12 @@ const ProjectDetails2Introduction = () => {
           <div className="col-lg-8 offset-lg-1 col-md-8">
             <div className="text js-scroll__content">
               <p className="extra-text">
-              We provided the following services for our client &quot;Penelope Thalasso & Spa&quot; in order to ensure:
+              We offered the following services to our client,
+ &quot;Penelope Thalasso & Spa&quot; to ensure their participation in the tourism fair 'Les Termailes Paris'
               </p>
 
               <ul className="smp-list mt-30">
-                <li>Content Production</li>
+                <li>content production (Promotional Videos & Commercial Photoshoot)</li>
                 <li>Digital Marketing Campaigns</li>
                 <li>Social Paid Advertising</li>
                 <li>Social Media Management</li>

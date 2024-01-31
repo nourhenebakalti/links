@@ -81,6 +81,11 @@ const IntroWithSlider1 = ({ sliderRef }) => {
                   swiper.pagination.destroy();
                   swiper.pagination.init();
                   swiper.pagination.update();
+
+                  swiper.pagination.destroy();
+                  swiper.pagination.init();
+                  swiper.pagination.update();
+                  
                 });
               }}
               className="swiper-wrapper"
@@ -97,7 +102,7 @@ const IntroWithSlider1 = ({ sliderRef }) => {
                       <div className="row justify-content-center">
                         <div className=" col-md-9">
                           <div className="caption center mt-50">
-                            <Split>
+                            
                               <h2 className="words chars splitting">
                               {typeof slide.title === "object" ? (
                                   <>
@@ -117,7 +122,7 @@ const IntroWithSlider1 = ({ sliderRef }) => {
                                   slide.title
                                 )}
                               </h1>
-                            </Split>
+                          
                             
                             {slide?.content && <p>{slide.content}</p>}
                             <Link href="/contact">

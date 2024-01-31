@@ -34,11 +34,11 @@ const NavbarFullMenu = ({ theme, lr }) => {
               <i></i>
               <i></i>
             </span>
-            <Split>
+           
               <span className="text" data-splitting>
                 <span className="menu-text">Menu</span>
               </span>
-            </Split>
+           
           </div>
         </div>
       </div>

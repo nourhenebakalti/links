@@ -123,22 +123,22 @@ const ContactWithMap = ({ theme = "dark" }) => {
             <div className="col-lg-5 offset-lg-1">
               <div className="cont-info">
                 <h4 className="extra-title mb-50">Contact Info.</h4>
-                <Split>
+                
                   <h3 className="custom-font wow" data-splitting>
                     Let&apos;s Talk.
                   </h3>
-                </Split>
+             
                 <div className="item mb-40">
                   <h5>
                     <a href="mailto:Contact@linksprod.com">Contact@linksprod.com</a>
                   </h5>
                   <h5>(+216) 21000950</h5>
                 </div>
-                <Split>
+                
                   <h3 className="custom-font wow" data-splitting>
                     Visit Us.
                   </h3>
-                </Split>
+               
                 <div className="item">
                   <h6>
                   Avenue Alain Savary 2036 

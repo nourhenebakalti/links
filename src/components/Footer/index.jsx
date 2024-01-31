@@ -52,10 +52,27 @@ const Footer = ({ noSubBG }) => {
               </div>
             </div>
           </div>
+          
           <div className="col-lg-5 offset-lg-2">
             <div className="subscribe mb-50">
+            <div className="insta">
+              <h6 className="custom-font stit simple-btn">Instagram Post</h6>
+              <div className="insta-gallary">
+              <a href="https://www.instagram.com/p/CnsEO8zB2I4/">
+  <img src="/img/insta/1.jpg" alt="" style={{ border: '3px solid #6f42c1', borderRadius: '50%' }} />
+</a>
+<a href="https://www.instagram.com/p/Cnr8LruhY_C/">
+  <img src="/img/insta/2.jpg" alt="" style={{ border: '3px solid #6f42c1', borderRadius: '50%' }} />
+</a>
+<a href="https://www.instagram.com/p/Cl1CRVKDqQ2/">
+  <img src="/img/insta/3.jpg" alt="" style={{ border: '3px solid #6f42c1', borderRadius: '50%' }} />
+</a>
+              </div>
+            </div>
+            <br/>
               <h6 className="custom-font stit simple-btn">Start your journey</h6>
               <p>Enter your email and we will contact you!</p>
+
               <Formik
                 initialValues={{
                   subscribe: "",
@@ -67,8 +84,10 @@ const Footer = ({ noSubBG }) => {
                   values.subscribe = "";
                 }}
               >
+                
                 {({ errors, touched }) => (
                   <Form>
+                    
                     <div className="form-group custom-font">
                       <Field
                         validate={validateEmail}
@@ -85,25 +104,13 @@ const Footer = ({ noSubBG }) => {
                 )}
               </Formik>
             </div>
-            <div className="insta">
-              <h6 className="custom-font stit simple-btn">Instagram Post</h6>
-              <div className="insta-gallary">
-                <a href="https://www.instagram.com/p/CnsEO8zB2I4/">
-                  <img src="/img/insta/1.jpg" alt="" />
-                </a>
-                <a href="https://www.instagram.com/p/Cnr8LruhY_C/">
-                  <img src="/img/insta/2.jpg" alt="" />
-                </a>
-                <a href="https://www.instagram.com/p/Cl1CRVKDqQ2/">
-                  <img src="/img/insta/3.jpg" alt="" />
-                </a>
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>
     </footer>
   );
 };
+
 
 export default Footer;

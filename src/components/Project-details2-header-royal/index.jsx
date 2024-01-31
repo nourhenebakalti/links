@@ -13,7 +13,7 @@ const ProjectDetails2Header = () => {
           <div className="col-lg-7 col-md-9">
             <div className="cont">
               <h6>Client</h6>
-              <h2>Royal Tulip</h2>
+              <h2>Royal Tulip Korbous Bay</h2>
             </div>
           </div>
         </div>
@@ -22,7 +22,7 @@ const ProjectDetails2Header = () => {
             <div className="item mt-30">
               <h6>Client Type</h6>
               <p>
-                <a href="#0">Hotel</a>
+                <a href="#0">Five star hotel</a>
               </p>
             </div>
           </div>
@@ -30,7 +30,7 @@ const ProjectDetails2Header = () => {
             <div className="item mt-30">
               <h6>Categories</h6>
               <p>
-                <Link href="/works/works-dark">Tourism</Link> ,
+                <Link href="/works/works-dark">Hospitality</Link> ,
                 <Link href="/works/works-dark">Resort</Link>
               </p>
             </div>
@@ -39,7 +39,7 @@ const ProjectDetails2Header = () => {
             <div className="item mt-30">
               <h6>Location</h6>
               <p>
-                <Link href="/works/works-dark">Tunis - Tunisia​</Link>
+                <Link href="/works/works-dark">Ain Okter Korbous, Slimen, Tunisie​</Link>
               </p>
             </div>
           </div>

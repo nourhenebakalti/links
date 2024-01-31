@@ -2,7 +2,6 @@
   {
     "id": 1,
     "image": "/img/portfolio/mas/04.jpg",
-    "image1": "/img/portfolio/mas/03.jpg",
     "title": "Odyssee Resort - Penelope",
     "tags": ["Resort"],
     "filterCategory": ["tourism"],
@@ -11,7 +10,6 @@
   {
     "id": 2,
     "image": "/img/portfolio/mas/02.jpg",
-    "image1": "/img/portfolio/mas/04.jpg",
     "title": "Tunisia Trip",
     "tags": ["Tourism"],
     "filterCategory": ["tourism"],
@@ -20,7 +18,6 @@
   {
     "id": 3,
     "image": "/img/portfolio/mas/03.jpg",
-    "image1": "/img/portfolio/mas/04.jpg",
     "title": "Kabcorner",
     "tags": ["Restaurant"],
     "filterCategory": ["restaurants"],
@@ -28,7 +25,6 @@
   },
   {"id": 4,
     "image": "/img/portfolio/mas/01.jpg",
-    "image1": "/img/portfolio/mas/04.jpg",
     "title": "Exist",
     "tags": ["Fashion"],
     "filterCategory": ["fashion"],
@@ -37,10 +33,17 @@
   {
     "id": 5,
     "image": "/img/portfolio/mas/05.jpg",
-    "image1": "/img/portfolio/mas/04.jpg",
     "title": "Royal Tulip",
     "tags": ["Hotel"],
     "filterCategory": ["tourism"],
     "link": "/royaltulip"
+  },
+  {
+    "id": 6,
+    "image": "/img/portfolio/mas/Triangle.jpg",
+    "title": "Triangle",
+    "tags": ["Sports, Events"],
+    "filterCategory": ["Events"],
+    "link": "/Triangle"
   }
 ]

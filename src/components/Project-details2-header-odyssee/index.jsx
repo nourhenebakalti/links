@@ -22,22 +22,18 @@ const ProjectDetails2Header = () => {
             <div className="item mt-30">
               <h6>Client Type</h6>
               <p>
-                <a href="#0">Resort</a>
+                <a href="#0">Thalasso & Spa</a>
               </p>
             </div>
           </div>
-          <div className="col-lg-3">
-            <div className="item mt-30">
-              <h6>Contract Term</h6>
-              <p>1 Year</p>
-            </div>
-          </div>
+  
           <div className="col-lg-3">
             <div className="item mt-30">
               <h6>Categories</h6>
               <p>
                 <Link href="/works/works-dark">Hotel</Link> ,
-                <Link href="/works/works-dark">Tourism</Link>
+                <Link href="/works/works-dark">Resort</Link>
+                <Link href="/works/works-dark">Hospitality</Link>
               </p>
             </div>
           </div>

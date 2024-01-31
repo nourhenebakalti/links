@@ -40,8 +40,7 @@ const ProjectDetails2Dark = () => {
         <ProjectDetails2Images />
         <ProjectDetailsDescription />
         <ProjectDetailsVideo
-        videoBackground="/img/portfolio/project2/bg.jpg"
-        videoUrl="https://www.facebook.com/OdysseeResortZarzis/videos/1073016356366796/"
+        videoUrl="https://www.facebook.com/100063998355199/videos/181277011573144/"
         />
         <br></br>
         <br></br>

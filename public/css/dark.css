@@ -169,7 +169,7 @@ span:hover {
 }
 
 .custom-font {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Prompt', sans-serif;
 }
 
 /* ====================== [ End Typography  ] ====================== */
@@ -1045,7 +1045,7 @@ span:hover {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   color: #A37CFF;
-  font-family: 'Teko', sans-serif;
+  font-family: 'Prompt', sans-serif;
   z-index: 9999;
 }
 
@@ -1450,7 +1450,7 @@ body {
 }
 
 .sub-title h6 {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Prompt', sans-serif;
   font-weight: 300;
   font-size: 16px;
   text-transform: uppercase;
@@ -1686,7 +1686,7 @@ body {
   background: transparent;
   border-bottom: 2px solid transparent;
   z-index: 999;
-  min-height: 80px;
+  min-height: 100px;
 }
 
 .navbar .icon-bar {
@@ -1694,7 +1694,7 @@ body {
 }
 
 .navbar .navbar-nav .nav-link {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   color: #fff;
   padding: 15px 7px;
@@ -1825,7 +1825,7 @@ body {
 }
 
 .navbar .logo {
-  width: 50px;
+  width: 70px;
 }
 
 .nav-scroll {
@@ -2789,7 +2789,7 @@ header.simpl .caption .btn-curve {
 .freelancer .cont h1 {
   font-size: 100px;
   font-weight: 700;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Prompt', serif;
   margin-bottom: 5px;
 }
 
@@ -4429,7 +4429,7 @@ header.simpl .caption .btn-curve {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 13px;
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Prompt', sans-serif;
 }
 
 .portfolio .gallery .items .item-img .cont span a {
@@ -4452,7 +4452,7 @@ header.simpl .caption .btn-curve {
   letter-spacing: 2px;
   font-weight: 400;
   font-size: 13px;
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Prompt', sans-serif;
 }
 
 .portfolio .gallery .items .cont span a {
@@ -6303,7 +6303,7 @@ header.simpl .caption .btn-curve {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   background: transparent;
   color: #fff;
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Prompt', sans-serif;
 }
 
 .contact-sec .form button {

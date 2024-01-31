@@ -8,7 +8,7 @@ import BlcSec from "../components/Blc-sec";
 import Features from "../components/Features";
 import ServicesBottom from "../components/Services6";
 import CallToAction from "../components/Call-to-action";
-import NumbersWithVideo from "../components/Numbers-with-video";
+import ProjectDetailsVideo from "../components/Project-details-video-exist";
 import Footer from "../components/Footer";
 import IntroWithSlider1 from "../components/Intro-with-slider1";
 
@@ -49,15 +49,11 @@ const Homepage6 = () => {
       <div ref={MainContent} className="main-content">
         <BlcSec />
         <Features />
-        <NumbersWithVideo/> 
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-
         <ServicesBottom />
+        <ProjectDetailsVideo
+        videoBackground="/img/portfolio/project2/bg.jpg"
+        videoUrl="https://www.youtube.com/watch?v=ze1UWYxgdBw"
+        />
         <CallToAction theme="dark" />
        <Footer noSubBG /> 
       </div>

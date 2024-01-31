@@ -16,15 +16,9 @@ const ProjectDetails2Introduction = () => {
             <div className="text js-scroll__content">
               <p className="extra-text">
             
-              We created a compelling promotional video for Exist, capturing the essence of their brand. <br></br> Our end-to-end videography services showcased their unique story, engaging audiences and leaving a lasting impression.</p>
+              We collaborated with Exist to meticulously craft a promotional video that not only captures the very essence of their brand but also exudes a timeless charm. <br></br> Employing our comprehensive videography services, we showcased Exist's unique narrative, delivering a compelling visual experience that leaves an enduring impression. <br></br> The deliberate integration of a 1950s-inspired theme adds a touch of sophistication and distinctiveness to the final product, elevating the overall impact of our collaborative efforts.</p>
 
-              <ul className="smp-list mt-30">
-
-<li>
-
-[Directed by : Oussema Bouaissi]</li>
-
-               </ul>
+          
             </div>
           </div>
         </div>
