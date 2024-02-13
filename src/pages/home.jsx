@@ -4,6 +4,7 @@ import DarkTheme from "../layouts/Dark";
 //= ================== Components ==================//
 import Navbar from "../components/Navbar";
 import BlcSec from "../components/Blc-sec";
+import { Helmet } from "react-helmet";
 //import Intro from "../components/Intro-txt2";
 import Features from "../components/Features";
 import ServicesBottom from "../components/Services6";
@@ -45,6 +46,10 @@ const Homepage6 = () => {
   return (
     <DarkTheme>
       <Navbar nr={navbarRef} lr={logoRef} />
+      <Helmet>
+      <meta name="description" content="LINKS STATION is an innovative creative studio dedicated to crafting extraordinary digital products, building memorable brands, and delivering captivating experiences."/>
+      <meta name="keywords" content="Links Station, identity development, brand development, branding services, digital identity, logo design, brand strategy, graphic design, marketing collateral, visual identity"/>
+      </Helmet>
       <IntroWithSlider1 sliderRef={fixedSlider} />
       <div ref={MainContent} className="main-content">
         <BlcSec />

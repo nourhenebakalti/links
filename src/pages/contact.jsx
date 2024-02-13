@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import ContactHeader from "../components/Contact-header";
 import ContactWithMap from "../components/Contact-with-map";
 import Navbar from "../components/Navbar";
@@ -34,6 +35,10 @@ const Contact = () => {
   return (
     <DarkTheme>
       <Navbar nr={navbarRef} />
+      <Helmet>
+      <meta name="description" content="Get in touch with Links Station today for expert identity and brand development services. Our team is ready to assist you in creating a compelling brand presence."/>
+      <meta name="keywords" content="contact, Links Station, identity development, brand development, branding services, contact us, brand presence"/>
+      </Helmet>
       <ContactHeader sliderRef={fixedHeader} />
       <div className="main-content" ref={MainContent}>
         <ContactWithMap />

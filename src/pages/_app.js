@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Links</title>
+        <title>Links Station | Identity & Brand Development Services</title>
         <link rel="icon" href="/img/favicon.ico" />
       </Head>
       <Cursor />

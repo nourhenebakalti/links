@@ -1,6 +1,6 @@
 import React from "react";
 import DarkTheme from "../layouts/Dark";
-import addParlx from "../common/addParlx";
+import { Helmet } from "react-helmet";
 import Navbar from "../components/Navbar";
 import PortfolioCustomColumn from "../components/Portfolio-custom-column";
 import CallToAction from "../components/Call-to-action";
@@ -39,6 +39,10 @@ const Works3Dark = () => {
   return (
     <DarkTheme>
       <Navbar nr={navbarRef} />
+      <Helmet>
+        <title>Links Station | Projects Showcase</title>
+        <meta name="description" content="Step into our world of creativity and innovation. Explore past projects showcasing the LINKS STATION difference. Each a testament to our commitment to excellence, creativity, and results. Ready to be inspired? Dive into our portfolio"/>
+      </Helmet>
       <ContactHeader sliderRef={fixedHeader} />
       <div className="main-content" ref={MainContent}>
         <CallToAction theme="dark" />

@@ -1,16 +1,14 @@
-import React from 'react'
-import DarkTheme from "../layouts/Dark";
+import React from "react";
 import Navbar from "../components/Navbar";
-import ProjectDetails2Header from "../components/Project-details2-header-tuntrip";
-import ProjectDetails2Introduction from "../components/Project-details2-introduction-tuntrip";
-import ProjectDetails2Images from "../components/Project-details2-images-tuntrip";
-import ProjectDetailsDescription from "../components/Project-details-description";
-import ProjectDetailsVideo from "../components/Project-details-video";
+import DarkTheme from "../layouts/Dark";
+import ProjectDetails2Header from "../components/Project-details2-header-tunisiatrip";
+import ProjectDetails2Introduction from "../components/Project-details2-introduction-tunisiatrip";
 import Footer from "../components/Footer";
+import { Helmet } from "react-helmet";
+import FigmaEmbed from "../components/Presentation/Index.jsx";
 
-
-const ProjectDetails2Dark = () => {
-    const navbarRef = React.useRef(null);
+const ShowcaseDark = () => {
+  const navbarRef = React.useRef(null);
     const logoRef = React.useRef(null);
     React.useEffect(() => {
       var navbar = navbarRef.current,
@@ -28,20 +26,20 @@ const ProjectDetails2Dark = () => {
         }
       });
     }, [navbarRef]);
-    return (
-      <DarkTheme>
-        <Navbar nr={navbarRef} lr={logoRef} />
-        <ProjectDetails2Header />
-        <ProjectDetails2Introduction />
-        <ProjectDetails2Images />
-        <ProjectDetailsDescription />
-        <ProjectDetailsVideo
-        videoBackground="/img/portfolio/project2/bg.jpg"
-        videoUrl="https://www.facebook.com/OdysseeResortZarzis/videos/1073016356366796/"
-        />
-        <Footer noSubBG />
-      </DarkTheme>
-    );
-}
+  return (
+    <DarkTheme>
+      <Navbar nr={navbarRef} lr={logoRef} />
+      <Helmet>
+        <title>Discover Tunisia: Your Ultimate Guide to Korean Tourism | Tunisiatrip.com</title>
+        <meta name="description" content="Explore the beauty of Tunisia with Tunisiatrip.com. Our comprehensive guide offers everything Korean tourists need to know, from top attractions to insider tips. Start planning your dream trip today!" />
+        <meta name="keywords" content="Tunisia, Korean tourism, Discover, Guide, Attractions, Insider tips, Dream trip, Tourism, Travel, Adventure"/>
+      </Helmet>
+      <ProjectDetails2Header/>
+      <ProjectDetails2Introduction/>
+      <FigmaEmbed/>
+      <Footer noSubBG />
+    </DarkTheme>
+  );
+};
 
-export default ProjectDetails2Dark
+export default ShowcaseDark;

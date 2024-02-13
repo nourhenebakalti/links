@@ -2,13 +2,13 @@
   {
     "id": 1,
     "title": { "first": "Hoodie", "second": "Jacket" },
-    "image": "/img/portfolio/full/1.jpg",
+    "image": "/img/portfolio/project2/TunisiaTrip/Cover_Page.jpg",
     "sub": "Design"
   },
   {
     "id": 2,
     "title": { "first": "Eminem", "second": "Style" },
-    "image": "/img/portfolio/full/4.jpg",
+    "image": "/img/portfolio/project2/TunisiaTrip/Cover_Page.jpg",
     "sub": "Design"
   },
   {

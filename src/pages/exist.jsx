@@ -1,5 +1,6 @@
 import React from 'react'
 import DarkTheme from "../layouts/Dark";
+import { Helmet } from "react-helmet";
 import Navbar from "../components/Navbar";
 import ProjectDetails2Header from "../components/Project-details2-header-exist";
 import ProjectDetails2Introduction from "../components/Project-details2-introduction-exist";
@@ -31,6 +32,11 @@ const ProjectDetails2Dark = () => {
     return (
       <DarkTheme>
         <Navbar nr={navbarRef} lr={logoRef} />
+        <Helmet>
+        <meta name="description" content="Collaborated with Exist on a captivating promotional video, showcasing their brand essence with timeless charm. Our videography services delivered a compelling narrative, enhanced by a deliberate 1950s-inspired theme."/>
+        <meta name="keywords" content="Exist, promotional video, collaboration, brand essence, timeless charm, videography services, narrative, 1950s-inspired theme"/>
+        </Helmet>
+
         <ProjectDetails2Header />
         <ProjectDetails2Introduction />
         <ProjectDetails2Images />

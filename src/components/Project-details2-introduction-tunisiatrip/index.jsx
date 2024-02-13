@@ -15,14 +15,15 @@ const ProjectDetails2Introduction = () => {
           <div className="col-lg-8 offset-lg-1 col-md-8">
             <div className="text js-scroll__content">
               <p className="extra-text">
-              
-              We provided integral support to &quot;Kabcorner&quot; by orchestrating a seamless brand launch. Our expertise extended to optimizing both digital and physical communication, ensuring a professional and effective media presence throughout the process.
+              We offered the following services to &quot;Atlantis Voyages&quot; for the creation of &quot;Tunisiatrip.com&quot;, aimed at showcasing Tunisia to potential Korean tourists:
               </p>
+
               <ul className="smp-list mt-30">
-                <li>Elevating Digital Branding: Crafting Content with Pinpoint Precision</li>
-                <li>Targeted Reach: Amplifying Audience Engagement through Social Paid Advertising</li>
-                <li>Maximizing Efficiency: Optimized Strategies for Social Media Management</li>
-                <li>Product Photography & Digital Signage Menu Creation</li>
+                <li>Benchmarking, Research and Wireframing</li>
+                <li>User Interface Design</li>
+                <li>Illustration and Graphic Design</li>
+                <li>Front and Back End Development</li>
+                <li>Deployment and Maintenance</li>
               </ul>
             </div>
           </div>

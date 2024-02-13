@@ -13,42 +13,17 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-          <meta
-            name="keywords"
-            content="Links Station | CREATIVE DIGITAL AGENCY"
-          />
+          <meta name="keywords" content="brand development, identity design, branding services, logo design, brand strategy, graphic design, marketing collateral, visual identity, brand guidelines, corporate branding, audio visual services, innovation solutions, creative design, digital branding, brand storytelling, web design, user experience (UX) design, product innovation, technology solutions, creative consulting"/>
           <meta
             name="description"
-            content="Links Station | CREATIVE DIGITAL AGENCY"
+            content="LINKS STATION is an innovative creative studio dedicated to crafting extraordinary digital products, building memorable brands, and delivering captivating experiences."
           />
           <meta name="author" content="" />
-          <link rel="shortcut icon" href="/img/favicon.ico" />
-          {/* Google Fonts */}
-          <link
-            href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
-            rel="stylesheet"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700;800;900&display=swap"
-            rel="stylesheet"
-          />
-          <link
-            href="https://fonts.googleapis.com/css?family=Playfair+Display:400,500,600,700,800,900&display=swap"
-            rel="stylesheet"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap"
-            rel="stylesheet"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200;300;400;500;600;700&display=swap"
-            rel="stylesheet"
-          />
         </Head>
 
         <body>
           <Main />
-          <NextScript />
+          <NextScript/>
         </body>
       </Html>
     );
