@@ -38,6 +38,7 @@ const ProjectDetails2Dark = () => {
         <Navbar nr={navbarRef} lr={logoRef} />
         <ProjectDetails2Header />
         <Helmet>
+        <title>Links Station | Penelope Digital Development</title>
         <meta name="description" content="Essential services provided to Penelope Thalasso & Spa for their participation in Les Termailes Paris: Content production, Digital Marketing Campaigns, Social Paid Advertising, and Social Media Management."/>
         <meta name="keywords" content="Penelope Thalasso & Spa, Les Termailes Paris, content production, promotional videos, commercial photoshoot, digital marketing campaigns, social paid advertising, social media management"/>
         </Helmet>

@@ -48,6 +48,12 @@ const Homepage6 = () => {
       <Helmet>
       <meta name="description" content="LINKS STATION is an innovative creative studio dedicated to crafting extraordinary digital products, building memorable brands, and delivering captivating experiences."/>
       <meta name="keywords" content="Links Station, identity development, brand development, branding services, digital identity, logo design, brand strategy, graphic design, marketing collateral, visual identity"/>
+      <meta property="og:type" content="Home Page"/>
+        <meta property="og:title" content="Links Station | About Us"/>
+        <meta property="og:description" content="LINKS STATION is an innovative creative studio dedicated to crafting extraordinary digital products, building memorable brands, and delivering captivating experiences."/>
+        <meta property="og:image" content= 'C:\Users\norhb\Desktop\github\links\public\img\smlogo.png'/>
+        <meta property="og:url" content="linkstation.live" />
+        <meta property="og:site_name" content="LINKS STATION"/>
       </Helmet>
       <IntroWithSlider1 sliderRef={fixedSlider} />
       <div ref={MainContent} className="main-content">

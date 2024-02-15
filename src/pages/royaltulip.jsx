@@ -35,7 +35,7 @@ const ProjectDetails2Dark = () => {
       <DarkTheme>
         <Navbar nr={navbarRef} lr={logoRef} />
         <Helmet>
-        <title>Links Station | Triangle Sports Event Coverage</title>
+        <title>Links Station | Royal Tulip Digital Development</title>
         <meta name="description" content="Spearheaded the launch and crafted a dynamic digital strategy for Royal Tulip Korbous Bay, delivering captivating digital identity, compelling videos, striking professional photographs, and effective social media services."/>
         <meta name="keywords" content="Royal Tulip Korbous Bay, launch, digital strategy, brand presence, digital identity, compelling videos, professional photography, tourism fairs, social media strategy, content production, paid advertising, social media management, promotional videos, hotel photography"/>
       </Helmet>

@@ -36,8 +36,10 @@ const Contact = () => {
     <DarkTheme>
       <Navbar nr={navbarRef} />
       <Helmet>
+      <title>Links Station | Contact Us</title>
       <meta name="description" content="Get in touch with Links Station today for expert identity and brand development services. Our team is ready to assist you in creating a compelling brand presence."/>
       <meta name="keywords" content="contact, Links Station, identity development, brand development, branding services, contact us, brand presence"/>
+      <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <ContactHeader sliderRef={fixedHeader} />
       <div className="main-content" ref={MainContent}>

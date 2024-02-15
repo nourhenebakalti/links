@@ -30,7 +30,7 @@ const ShowcaseDark = () => {
     <DarkTheme>
       <Navbar nr={navbarRef} lr={logoRef} />
       <Helmet>
-        <title>Discover Tunisia: Your Ultimate Guide to Korean Tourism | Tunisiatrip.com</title>
+        <title>Links Station | Tunisiatrip.com Your Ultimate Guide to Korean Tourism</title>
         <meta name="description" content="Explore the beauty of Tunisia with Tunisiatrip.com. Our comprehensive guide offers everything Korean tourists need to know, from top attractions to insider tips. Start planning your dream trip today!" />
         <meta name="keywords" content="Tunisia, Korean tourism, Discover, Guide, Attractions, Insider tips, Dream trip, Tourism, Travel, Adventure"/>
       </Helmet>

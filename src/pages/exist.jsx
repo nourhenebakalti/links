@@ -33,6 +33,7 @@ const ProjectDetails2Dark = () => {
       <DarkTheme>
         <Navbar nr={navbarRef} lr={logoRef} />
         <Helmet>
+        <title>Links Station | Exist Marketing Campaign</title>
         <meta name="description" content="Collaborated with Exist on a captivating promotional video, showcasing their brand essence with timeless charm. Our videography services delivered a compelling narrative, enhanced by a deliberate 1950s-inspired theme."/>
         <meta name="keywords" content="Exist, promotional video, collaboration, brand essence, timeless charm, videography services, narrative, 1950s-inspired theme"/>
         </Helmet>
