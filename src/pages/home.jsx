@@ -5,7 +5,6 @@ import DarkTheme from "../layouts/Dark";
 import Navbar from "../components/Navbar";
 import BlcSec from "../components/Blc-sec";
 import { Helmet } from "react-helmet";
-//import Intro from "../components/Intro-txt2";
 import Features from "../components/Features";
 import ServicesBottom from "../components/Services6";
 import CallToAction from "../components/Call-to-action";
@@ -56,7 +55,6 @@ const Homepage6 = () => {
         <Features />
         <ServicesBottom />
         <ProjectDetailsVideo
-        videoBackground="/img/portfolio/project2/bg.jpg"
         videoUrl="https://www.youtube.com/watch?v=ze1UWYxgdBw"
         />
         <CallToAction theme="dark" />

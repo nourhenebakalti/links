@@ -2,6 +2,7 @@
   {
     "id": 1,
     "image": "/img/portfolio/mas/04.jpg",
+    "alt": "A female model sitting in a hotel spa, wearing a traditional Tunisia Fouta and a white bathrobe. She is looking away from camera and smiling. The background is a spa with a pool and a sauna.",
     "title": "Odyssee Resort - Penelope",
     "tags": ["Resort"],
     "filterCategory": ["tourism"],
@@ -11,6 +12,7 @@
     "id": 2,
     "image": "/img/portfolio/mas/03.jpg",
     "title": "Kabcorner",
+    "alt":"A patterned picture of french fries. The background is bright yellow and the fries are in a black box",
     "tags": ["Restaurant"],
     "filterCategory": ["restaurants"],
     "link": "/kabcorner"
@@ -18,6 +20,7 @@
   {"id": 3,
     "image": "/img/portfolio/mas/01.jpg",
     "title": "Exist",
+    "alt":"Two male models posing on top of a red car. They are wearing white shirts and summer shorts. The background is a sunny day with a blue sky.",
     "tags": ["Fashion"],
     "filterCategory": ["fashion"],
     "link": "/exist"
@@ -26,6 +29,7 @@
     "id": 4,
     "image": "/img/portfolio/mas/05.jpg",
     "title": "Royal Tulip",
+    "alt": "A hotel lobby with a modern design. A chandelier is hanging from the ceiling and the floor is made of marble. The hotel is Odyssee Resort - Royal Tulip.",
     "tags": ["Hotel"],
     "filterCategory": ["tourism"],
     "link": "/royaltulip"
@@ -34,6 +38,7 @@
     "id": 5,
     "image": "/img/portfolio/mas/Triangle.jpg",
     "title": "Triangle",
+    "alt": "A female gym trainer on stage using a stationary bike in a Triangle gym event.",
     "tags": ["Sports, Events"],
     "filterCategory": ["Events"],
     "link": "/Triangle"
@@ -42,6 +47,7 @@
     "id": 6,
     "image": "/img/portfolio/mas/02.jpg",
     "title": "Tunisia Trip",
+    "alt": "An illustration of Sidi Bou Said with bright colors and a modern design. The illustration is for Tunisia Trip which logo is on the top left.",
     "tags": ["Tourism"],
     "filterCategory": ["tourism"],
     "link": "tunisiatrip"

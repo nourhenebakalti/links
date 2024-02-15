@@ -75,6 +75,7 @@ const Works1Slider = () => {
                         className="item-img bg-img wow imago"
                         style={{
                           backgroundImage: `url(${slide.image})`,
+                          aria_label: 'slide.alt',
                         }}
                       ></div>
                       <div className="cont">

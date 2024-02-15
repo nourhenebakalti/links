@@ -2,6 +2,7 @@
   {
     "id": 1,
     "title": "behind the lens",
+    "alt": "backstage photography",
     "secTex": "Snapshots",
     "image": "/img/portfolio/project2/exitsk.jpg",
     "slug": "/project-details2/project-details2-dark"
@@ -9,6 +10,7 @@
   {
     "id": 2,
     "title": "behind the lens",
+    "alt": "backstage photography",
     "secTex": "Snapshots",
     "image": "/img/portfolio/project2/existk2.jpg",
     "slug": "/project-details2/project-details2-dark"
@@ -16,6 +18,7 @@
   {
     "id": 4,
     "title": "behind the lens",
+    "alt": "backstage photography",
     "secTex": "Snapshots",
     "image": "/img/portfolio/project2/existk3.jpg",
     "slug": "/project-details2/project-details2-dark"
@@ -23,6 +26,7 @@
   {
     "id": 5,
     "title": "behind the lens",
+    "alt": "backstage photography",
     "secTex": "Snapshots",
     "image": "/img/portfolio/project2/existk4.jpg",
     "slug": "/project-details2/project-details2-dark"
@@ -30,6 +34,7 @@
   {
     "id": 5,
     "title": "behind the lens",
+    "alt": "backstage photography",
     "secTex": "Snapshots",
     "image": "/img/portfolio/project2/existk5.jpg",
     "slug": "/project-details2/project-details2-dark"

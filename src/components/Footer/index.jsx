@@ -22,7 +22,7 @@ const Footer = ({ noSubBG }) => {
             <div className="cont">
               <div className="logo">
                 <a href="#0">
-                  <img src={`${appData.lightLogo}`} alt="" />
+                  <img src={`${appData.lightLogo}`} alt="Links Station logo" />
                 </a>
               </div>
               <div className="con-info custom-font">
@@ -59,13 +59,13 @@ const Footer = ({ noSubBG }) => {
               <h6 className="custom-font stit simple-btn">Instagram Post</h6>
               <div className="insta-gallary">
               <a href="https://www.instagram.com/p/CnsEO8zB2I4/">
-  <img src="/img/insta/1.jpg" alt="" style={{ border: '3px solid #6f42c1', borderRadius: '50%' }} />
+  <img src="/img/insta/1.jpg" alt="A snippet from an instagram post that showcases some work that Links Station did for one of their clients." style={{ border: '3px solid #6f42c1', borderRadius: '50%' }} />
 </a>
 <a href="https://www.instagram.com/p/Cnr8LruhY_C/">
-  <img src="/img/insta/2.jpg" alt="" style={{ border: '3px solid #6f42c1', borderRadius: '50%' }} />
+  <img src="/img/insta/2.jpg" alt="A snippet from an instagram post that showcases some work that Links Station did for one of their clients." style={{ border: '3px solid #6f42c1', borderRadius: '50%' }} />
 </a>
 <a href="https://www.instagram.com/p/Cl1CRVKDqQ2/">
-  <img src="/img/insta/3.jpg" alt="" style={{ border: '3px solid #6f42c1', borderRadius: '50%' }} />
+  <img src="/img/insta/3.jpg" alt="A snippet from an instagram post that showcases some work that Links Station did for one of their clients." style={{ border: '3px solid #6f42c1', borderRadius: '50%' }} />
 </a>
               </div>
             </div>

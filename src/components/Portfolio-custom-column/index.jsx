@@ -84,7 +84,7 @@ const PortfolioCustomColumn = ({
                     <a className="imago wow">
                       <img
                         src={isHovered? item.image1 : item.image}
-                        alt="Image"
+                        alt={item.alt}
                         onMouseEnter={() => setIsHovered(true)}
                         onMouseLeave={() => setIsHovered(false)}
                       />
