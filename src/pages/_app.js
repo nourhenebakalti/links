@@ -12,6 +12,8 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <title>Links Station | Identity & Brand Development Services</title>
         <link rel="icon" href="/img/favicon.ico" />
+        {/* Open Graph image metadata */}
+        <meta property="og:image" content="/img/favicon.ico" />
       </Head>
       <Cursor />
       <LoadingScreen />
