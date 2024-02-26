@@ -1,44 +1,44 @@
 [
   {
     "id": 1,
-    "title": "Crafting Identity",
-    "title2": "Designing the Future",
+    "title": "Identity Design",
+    "title2": "Linking Vision to Reality",
     "icon": "pe-7s-id",
-    "content": "Elevate your brand with bespoke visual identity, including web development for immersive online experiences."
+    "content": "From defining your brand persona, tone of voice, and character to crafting a captivating visual identity that embodies your brand's spirit."
   },
   {
     "id": 2,
-    "title": "Social Symphony",
-    "title2": "Social Media Management",
+    "title": "Digital Presence",
+    "title2": "Linking Brands to Audience",
     "icon": "pe-7s-target",
-    "content": "Conduct a social symphony, dominating Instagram, Facebook, and beyond with specialized marketing."
+    "content": "Managing Social Media and creating content that resonates with your audience across platforms like Instagram and Facebook."
   },
   {
     "id": 3,
-    "title": "Visual Chronicles",
-    "title2": "Audio-Visual Production",
+    "title": "Visual Production",
+    "title2": "Linking Ideas to Experience",
     "icon": "pe-7s-video",
-    "content": "Script and produce captivating narratives, specializing in crafting vertical video for the modern mobile era."
+    "content": "Scripting and producing captivating photography and videography that elevate your brand presence and engage audiences effectively."
   },
   {
     "id": 4,
-    "title": "Strategic Echo",
-    "title2": "Advertising Mastery",
+    "title": "Advertising Strategy",
+    "title2": "Linking Plans to Results",
     "icon": "pe-7s-speaker",
-    "content": "Develop campaigns that echo in the minds of your audience through targeted advertising for diverse and engaged audiences."
+    "content": "Creating impactful campaigns with targeted advertising to drive performance and resonate deeply with varied and engaged audiences."
   },
   {
     "id": 5,
-    "title": "Influence Amplified",
-    "title2": "Influencer Marketing",
-    "icon": "pe-7s-gleam",
-    "content": "Forge authentic connections with influencers, amplifying your brand message through influential partnerships."
+    "title": "Web Development",
+    "title2": "Linking Businesses to Users",
+    "icon": "pe-7s-global",
+    "content": "Building immersive, data-driven online experiences that leave a lasting impression, integrating seamless UI and UX design."
   },
   {
     "id": 6,
-    "title": "Story Weavers",
-    "title2": "Content Creation",
+    "title": "Storytelling",
+    "title2": "Linking Stories to Hearts",
     "icon": "pe-7s-film",
-    "content": "Weave resonant stories that inspire action through tailored content creation for diverse platforms."
+    "content": "Crafting tailored content creation, adapting narratives to various content formats, including vertical videos for the modern mobile era."
   }
 ]
