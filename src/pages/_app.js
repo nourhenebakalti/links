@@ -16,6 +16,7 @@ function MyApp({ Component, pageProps }) {
 
   {/* Additional favicon sizes */}
   <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="18x18" href="/img/favicon-18x18.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="48x48" href="/img/favicon-48x48.png" />
   {/* Add more sizes as needed */}
