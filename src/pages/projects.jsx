@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 import PortfolioCustomColumn from "../components/Portfolio-custom-column";
 import CallToAction from "../components/Call-to-action";
 import Footer from "../components/Footer";
-import ContactHeader from "../components/Project-header";
+//import ContactHeader from "../components/Project-header";
 
 
 const Works3Dark = () => {
@@ -43,10 +43,9 @@ const Works3Dark = () => {
         <title>Links Station | Projects Showcase</title>
         <meta name="description" content="Step into our world of creativity and innovation. Explore past projects showcasing the LINKS STATION difference. Each a testament to our commitment to excellence, creativity, and results. Ready to be inspired? Dive into our portfolio"/>
       </Helmet>
-      <ContactHeader sliderRef={fixedHeader} />
       <div className="main-content" ref={MainContent}>
-        <CallToAction theme="dark" />
         <PortfolioCustomColumn column={2}/>
+        <CallToAction theme="dark" />
         <Footer noSubBG />
       </div>
     </DarkTheme>

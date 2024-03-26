@@ -4,6 +4,7 @@ import ContactHeader from "../components/Contact-header";
 import ContactWithMap from "../components/Contact-with-map";
 import Navbar from "../components/Navbar";
 import DarkTheme from "../layouts/Dark";
+import Header from "../components/About-header";
 
 const Contact = () => {
   const fixedHeader = React.useRef(null);
@@ -41,8 +42,8 @@ const Contact = () => {
       <meta name="keywords" content="contact, Links Station, identity development, brand development, branding services, contact us, brand presence"/>
       <meta name="robots" content="noindex, nofollow" />
       </Helmet>
-      <ContactHeader sliderRef={fixedHeader} />
       <div className="main-content" ref={MainContent}>
+        <Header/>
         <ContactWithMap />
       </div>
     </DarkTheme>
