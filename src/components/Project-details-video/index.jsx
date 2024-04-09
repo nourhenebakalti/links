@@ -21,12 +21,30 @@ const ProjectDetailsVideo = ({ videoBackground, videoUrl }) => {
           <YouTube
             videoId={getYouTubeVideoId(videoUrl)}
             containerClassName="youtube-container" // Add a custom class for styling
-            opts={{ width: "90%" }}
+            opts={{
+              width: "90%",
+              playerVars: {
+                // Set a fixed aspect ratio for horizontal rectangle (16:9)
+                // Adjust height according to the aspect ratio
+                // For example, if width is 90%, height should be 90% * (9/16)
+                // You can adjust this value based on your preference
+                height: "50.625vw", // 90% * (9/16)
+                // Add any other player options here
+              },
+            }}
           />
         ) : (
           // Use react-facebook EmbeddedVideo component for Facebook videos
           <FacebookProvider appId="your_facebook_app_id">
-            <EmbeddedVideo href={videoUrl} width="90%" />
+            <EmbeddedVideo
+              href={videoUrl}
+              width="90%"
+              // Set a fixed aspect ratio for horizontal rectangle (16:9)
+              // Adjust height according to the aspect ratio
+              // For example, if width is 90%, height should be 90% * (9/16)
+              // You can adjust this value based on your preference
+              height="50.625vw" // 90% * (9/16)
+            />
           </FacebookProvider>
         )}
       </div>

@@ -1,10 +1,24 @@
+/* CSS for desktop devices */
+.cursor-pointer {
+  cursor: pointer; /* Apply custom cursor on desktop */
+}
+
+/* CSS for mobile devices */
+@media only screen and (max-width: 991px) {
+  .cursor-pointer {
+    cursor: auto; /* Remove custom cursor on mobile */
+  }
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   background: #232323;
 }
+
 a {
   cursor: pointer;
 }
+
 h1,
 h2,
 h3,
@@ -94,7 +108,7 @@ p {
     overflow: auto;
     background: #262626;
     text-align: center;
-    padding:0;
+    padding: 0;
   }
 
   .nav-scroll .navbar-collapse .active,

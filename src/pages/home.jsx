@@ -8,7 +8,7 @@ import { Helmet } from "react-helmet";
 import Features from "../components/Features";
 import ServicesBottom from "../components/Services6";
 import CallToAction from "../components/Call-to-action";
-import ProjectDetailsVideo from "../components/Project-details-video-exist";
+import ProjectDetailsVideo from "../components/Project-details-video";
 import Footer from "../components/Footer";
 import IntroWithSlider1 from "../components/Intro-with-slider1";
 

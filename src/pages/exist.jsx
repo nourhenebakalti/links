@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 import ProjectDetails2Header from "../components/Project-details2-header-exist";
 import ProjectDetails2Introduction from "../components/Project-details2-introduction-exist";
 import ProjectDetails2Images from "../components/Project-details2-images-exist";
-import ProjectDetailsVideo from "../components/Project-details-video-exist";
+import ProjectDetailsVideo from "../components/Project-details-video";
 import Works1Slider from "../components/Works1-slider-exist";
 import Footer from "../components/Footer";
 

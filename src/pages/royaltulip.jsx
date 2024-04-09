@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 import ProjectDetails2Header from "../components/Project-details2-header-royal";
 import ProjectDetails2Introduction from "../components/Project-details2-introduction-royal";
 import ProjectDetails2Images from "../components/Project-details2-images-royal";
-import ProjectDetailsVideo from "../components/Project-details-video-exist";
+import ProjectDetailsVideo from "../components/Project-details-video";
 import Footer from "../components/Footer";
 
 //import NextProject from "../../components/Next-project";
