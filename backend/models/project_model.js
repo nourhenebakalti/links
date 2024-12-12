@@ -4,7 +4,7 @@ const projectSchema = new mongoose.Schema({
   title: String,
   description: String,
   coverImage: String,
-  images: [String], 
+  images: [String],
   websiteLink: String,
   youtubeLink: String,
   client_type: String,
@@ -16,8 +16,11 @@ const projectSchema = new mongoose.Schema({
   dateOfModification: {
     type: Date,
     default: Date.now
+  },
+  hidden: {
+    type: Boolean,
+    default: false // if true, project is not visible to public
   }
-  
 });
 
 module.exports = mongoose.model('Project', projectSchema);

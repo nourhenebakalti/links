@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 const Project = require('../models/project_model');
 
-// API endpoint to fetch projects
+// API endpoint to fetch projects (filtered by hidden)
 router.get('/', async (req, res) => {
     try {
-        const projects = await Project.find();
+        const projects = await Project.find({ hidden: false });
         res.json(projects);
     } catch (err) {
         console.error(err);

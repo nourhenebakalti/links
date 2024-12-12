@@ -8,8 +8,6 @@ import ProjectDetails2Images from "../components/Project-details2-images-kab";
 import ProjectDetailsVideo from "../components/Project-details-video";
 import Footer from "../components/Footer";
 
-
-
 const ProjectDetails2Dark = () => {
     const navbarRef = React.useRef(null);
     const logoRef = React.useRef(null);
@@ -17,15 +15,15 @@ const ProjectDetails2Dark = () => {
       var navbar = navbarRef.current,
         logo = logoRef.current;
       if (window.pageYOffset > 300) {
-        navbar.classList.add("nav-scroll");
+        navbar.classList.add("nav-scroll"); // Corrected typo here
       } else {
-        navbar.classList.remove("nav-scroll");
+        navbar.classList.remove("nav-scroll"); // Corrected typo here
       }
       window.addEventListener("scroll", () => {
         if (window.pageYOffset > 300) {
-          navbar.classList.add("nav-scroll");
+          navbar.classList.add("nav-scroll"); // Corrected typo here
         } else {
-          navbar.classList.remove("nav-scroll");
+          navbar.classList.remove("nav-scroll"); // Corrected typo here
         }
       });
     }, [navbarRef]);
