@@ -19,7 +19,7 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan('combined'));
 // Use the routes
-app.use('/api/auth', authRoutes); // Add auth routes
+app.use('/auth', authRoutes); // Add auth routes
 app.use('/api/projects', projectRoutes);
 
 

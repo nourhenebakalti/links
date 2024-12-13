@@ -1,46 +1,62 @@
 const express = require('express');
-const router = express.Router();
+const multer = require('multer');
+const fs = require('fs');
+const path = require('path');
 const Project = require('../models/project_model');
 const User = require('../models/Admin_model');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
-// Middleware to check if user is authenticated
+const router = express.Router();
+
+// Middleware to check if the user is authenticated
 const authMiddleware = async (req, res, next) => {
-  const token = req.header('Authorization');
-  if (!token) {
-      return res.status(401).json({ error: 'Unauthorized' });
-  }
+    const token = req.header('Authorization');
+    if (!token) {
+        return res.status(401).json({ error: 'Unauthorized' });
+    }
 
-  try {
-      
-      const tokenWithoutBearer = token.replace('Bearer ', '');
+    try {
+        const tokenWithoutBearer = token.replace('Bearer ', '');
+        const decoded = jwt.verify(tokenWithoutBearer, 'your_secret_key'); // Change in production
 
-      const decoded = jwt.verify(tokenWithoutBearer, '123'); // this should be changed in production
-     
-      if (!decoded.userId) {
-          return res.status(401).json({ error: 'Invalid token' });
-      }
+        if (!decoded.userId) {
+            return res.status(401).json({ error: 'Invalid token' });
+        }
 
-      const user = await User.findById(decoded.userId);
-      
-      if (!user || user.role !== 'admin') {
-          return res.status(403).json({ error: 'Forbidden' });
-      }
+        const user = await User.findById(decoded.userId);
+        if (!user || user.role !== 'admin') {
+            return res.status(403).json({ error: 'Forbidden' });
+        }
 
-      req.user = user;
-      next();
-  } catch (err) {
-      return res.status(401).json({ error: 'Invalid token' });
-  }
+        req.user = user;
+        next();
+    } catch (err) {
+        return res.status(401).json({ error: 'Invalid token' });
+    }
 };
 
+// Set up multer for dynamic storage based on project title
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        const { title } = req.body; // Get project title from request body
+        const projectPath = path.join(__dirname, '../uploads', title);
 
+        // Create directory if it doesn't exist
+        fs.mkdirSync(projectPath, { recursive: true });
 
+        cb(null, projectPath); // Set the destination to the project folder
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + '-' + file.originalname); // Create a unique filename
+    },
+});
+
+const upload = multer({ storage });
 
 // Login
 router.post('/login', async (req, res) => {
-const { email, password } = req.body;
+    const { email, password } = req.body;
 
     try {
         const user = await User.findOne({ email });
@@ -53,7 +69,7 @@ const { email, password } = req.body;
             return res.status(401).json({ error: 'Invalid email or password' });
         }
 
-        const token = jwt.sign({ userId: user._id }, '123', { expiresIn: '1h' }); // this should be changed in production
+        const token = jwt.sign({ userId: user._id }, 'your_secret_key', { expiresIn: '1h' }); // Change in production
         res.json({ token });
     } catch (err) {
         res.status(500).json({ error: 'Server Error' });
@@ -62,34 +78,32 @@ const { email, password } = req.body;
 
 // Register admin
 router.post('/register-admin', async (req, res) => {
-  const { username, email, password } = req.body;
+    const { username, email, password } = req.body;
 
-  try {
-    const hashedPassword = await bcrypt.hash(password, 10); 
+    try {
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const newUser = new User({
+            username,
+            email,
+            password: hashedPassword,
+            role: 'admin'
+        });
 
-    const newUser = new User({
-      username,
-      email,
-      password: hashedPassword,
-      role: 'admin'
-    });
-
-    const savedUser = await newUser.save();
-    res.json(savedUser);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Failed to create admin user' });
-  }
+        const savedUser = await newUser.save();
+        res.json(savedUser);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Failed to create admin user' });
+    }
 });
 
 // Logout
 router.post('/logout', authMiddleware, (req, res) => {
-   localStorage.removeItem('authToken');
-  res.json({ message: 'Logged out successfully' });
+    // Clear token logic here as needed
+    res.json({ message: 'Logged out successfully' });
 });
 
-
-// get all projects
+// Get all projects
 router.get('/projects', authMiddleware, async (req, res) => {
     try {
         const projects = await Project.find();
@@ -101,83 +115,94 @@ router.get('/projects', authMiddleware, async (req, res) => {
 });
 
 // Toggle project visibility
-  router.put('/projects/:id/toggle-hidden', authMiddleware, async (req, res) => {
+router.put('/projects/:id/toggle-hidden', authMiddleware, async (req, res) => {
     const { id } = req.params;
-  
+
     try {
-      const project = await Project.findById(id);
-      if (!project) {
-        return res.status(404).json({ message: 'Project not found' });
-      }
-  
-      project.hidden = !project.hidden;
-      await project.save();
-  
-      res.json(project);
+        const project = await Project.findById(id);
+        if (!project) {
+            return res.status(404).json({ message: 'Project not found' });
+        }
+
+        project.hidden = !project.hidden;
+        await project.save();
+
+        res.json(project);
     } catch (err) {
-      console.error(err);
-      res.status(500).json({ error: 'Failed to toggle project visibility' });
+        console.error(err);
+        res.status(500).json({ error: 'Failed to toggle project visibility' });
     }
-  });
-
-
-
-// Add a new project
-router.post('/projects', authMiddleware, async (req, res) => {
-  const { projectData } = req.body; 
-
-  try {
-    const newProject = await Project.create(projectData); 
-    if (!newProject) {
-      return res.status(400).json({ message: 'Failed to create project' });
-    }
-
-    res.status(201).json(newProject); 
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Failed to create project' });
-  }
 });
 
- 
+// Add a new project with image uploads
+router.post('/projects', authMiddleware, upload.array('images', 10), async (req, res) => {
+    const {
+        title,
+        description,
+        coverImage,
+        websiteLink,
+        youtubeLink,
+        client_type,
+        about_section,
+    } = req.body;
 
+    try {
+        const newProject = new Project({
+            title,
+            description,
+            coverImage,
+            images: req.files.map(file => file.path), // Save uploaded image paths
+            websiteLink,
+            youtubeLink,
+            client_type,
+            about_section,
+        });
+
+        const savedProject = await newProject.save();
+        if (!savedProject) {
+            return res.status(400).json({ message: 'Failed to create project' });
+        }
+
+        res.status(201).json(savedProject);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Failed to create project' });
+    }
+});
 
 // Update a project
 router.put('/projects/:id', authMiddleware, async (req, res) => {
-  const { id } = req.params;
-  const { updates } = req.body; // Assuming updates is an object containing changes
+    const { id } = req.params;
+    const { updates } = req.body; // Assuming updates is an object containing changes
 
-  try {
-    const project = await Project.findByIdAndUpdate(id, updates, { new: true }); // Return updated document
-    if (!project) {
-      return res.status(404).json({ message: 'Project not found' });
+    try {
+        const project = await Project.findByIdAndUpdate(id, updates, { new: true });
+        if (!project) {
+            return res.status(404).json({ message: 'Project not found' });
+        }
+
+        res.json(project);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Failed to update project' });
     }
-
-    res.json(project);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Failed to update project' });
-  }
 });
-
-
 
 // Delete a project
 router.delete('/projects/:id', authMiddleware, async (req, res) => {
-  const { id } = req.params;
+    const { id } = req.params;
 
-  try {
-    const project = await Project.findByIdAndDelete(id);
-    if (!project) {
-      return res.status(404).json({ message: 'Project not found' });
+    try {
+        const project = await Project.findByIdAndDelete(id);
+        if (!project) {
+            return res.status(404).json({ message: 'Project not found' });
+        }
+
+        res.json({ message: 'Project deleted successfully' });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Failed to delete project' });
     }
-
-    res.json({ message: 'Project deleted successfully' });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Failed to delete project' });
-  }
 });
-
 
 module.exports = router;

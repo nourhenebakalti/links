@@ -128,3 +128,5 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+# Ignore uploads directory to prevent it from being uploaded to the server
+uploads/
