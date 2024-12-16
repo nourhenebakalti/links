@@ -1,157 +1,155 @@
-// src/pages/admin/dashboard.jsx
-import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import React, { useState } from 'react';
 import axios from 'axios';
+import { useRouter } from 'next/router';
 
-const AdminDashboard = () => {
-  const [token, setToken] = useState('');
-  const [projectData, setProjectData] = useState({
-    title: '',
-    description: '',
-    coverImage: '',
-    images: [],
-    websiteLink: '',
-    youtubeLink: '',
-    client_type: '',
-    about_section: '',
-  });
-  const [message, setMessage] = useState('');
-  const [filePreviews, setFilePreviews] = useState([]); // For image previews
-  const router = useRouter();
-
-  useEffect(() => {
-    const checkAuthToken = () => {
-      const authToken = localStorage.getItem('authToken');
-      setToken(authToken);
-
-      if (!authToken) {
-        router.push('/admin/admin_login');
-      }
-    };
-
-    checkAuthToken();
-    const interval = setInterval(checkAuthToken, 1000); 
-    return () => clearInterval(interval);
-  }, [router]);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    
-    if (name === 'images') {
-      setProjectData({
-        ...projectData,
-        [name]: value.split(',').map((img) => img.trim()),
-      });
-    } else {
-      setProjectData({
-        ...projectData,
-        [name]: value,
-      });
-    }
-  };
-
-  const handleFileChange = (e) => {
-    const files = Array.from(e.target.files);
-    setProjectData((prevState) => ({
-      ...prevState,
-      images: files,
-    }));
-
-    // Generate previews
-    setFilePreviews(files.map(file => URL.createObjectURL(file)));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData();
-    // Append project data to FormData
-    for (const key in projectData) {
-      if (Array.isArray(projectData[key])) {
-        projectData[key].forEach(file => {
-          formData.append('images', file); // Append files for images
-        });
-      } else {
-        formData.append(key, projectData[key]);
-      }
-    }
-
-    try {
-      const response = await axios.post('http://localhost:5000/auth//projects', formData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-      setMessage('Project added successfully!');
-      
-      // Reset the form fields
-      setProjectData({
+const AddProjectForm = () => {
+    const router = useRouter(); // Initialize useRouter
+    const [projectData, setProjectData] = useState({
         title: '',
         description: '',
-        coverImage: '',
-        images: [],
         websiteLink: '',
         youtubeLink: '',
         client_type: '',
         about_section: '',
-      });
-      setFilePreviews([]); // Clear previews
-    } catch (error) {
-      console.error('Error adding project:', error);
-      setMessage('Failed to add project');
-    }
-  };
+        coverImage: null,
+        images: [],
+    });
 
-  if (!token) return null;
+    const handleFileChange = (e) => {
+        const { name, files } = e.target;
+        if (name === 'coverImage') {
+            setProjectData({ ...projectData, coverImage: files[0] }); // Handle cover image separately
+        } else {
+            setProjectData({ ...projectData, images: files }); // Handle other images
+        }
+    };
 
-  return (
-    <div>
-      <h1>Admin Dashboard</h1>
-      <h2>Add New Project</h2>
-      {message && <p>{message}</p>}
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Title:</label>
-          <input type="text" name="title" value={projectData.title} onChange={handleChange} required />
-        </div>
-        <div>
-          <label>Description:</label>
-          <textarea name="description" value={projectData.description} onChange={handleChange} required />
-        </div>
-        <div>
-          <label>Cover Image URL:</label>
-          <input type="text" name="coverImage" value={projectData.coverImage} onChange={handleChange} />
-        </div>
-        <div>
-          <label>Images:</label>
-          <input type="file" name="images" accept="image/*" multiple onChange={handleFileChange} />
-        </div>
-        <div>
-          {filePreviews.map((file, index) => (
-            <img key={index} src={file} alt={`Preview ${index}`} style={{ width: '100px', height: 'auto', margin: '5px' }} />
-          ))}
-        </div>
-        <div>
-          <label>Website Link:</label>
-          <input type="text" name="websiteLink" value={projectData.websiteLink} onChange={handleChange} />
-        </div>
-        <div>
-          <label>YouTube Link:</label>
-          <input type="text" name="youtubeLink" value={projectData.youtubeLink} onChange={handleChange} />
-        </div>
-        <div>
-          <label>Client Type:</label>
-          <input type="text" name="client_type" value={projectData.client_type} onChange={handleChange} />
-        </div>
-        <div>
-          <label>About Section:</label>
-          <textarea name="about_section" value={projectData.about_section} onChange={handleChange} />
-        </div>
-        <button type="submit">Add Project</button>
-      </form>
-    </div>
-  );
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData();
+        for (const key in projectData) {
+            if (key === 'coverImage' && projectData.coverImage) {
+                formData.append('coverImage', projectData.coverImage); // Append cover image
+            } else if (key === 'images') {
+                Array.from(projectData.images).forEach(file => {
+                    if (file) {
+                        formData.append('images', file); // Append image files
+                    }
+                });
+            } else {
+                formData.append(key, projectData[key]); // Append other project data
+            }
+        }
+
+        console.log('Form Data:', Array.from(formData.entries())); // Check form data before submitting
+
+        const token = localStorage.getItem('authToken'); // Retrieve the token from local storage
+
+        try {
+            const response = await axios.post('http://localhost:5000/auth/projects', formData, {
+                headers: {
+                    Authorization: `Bearer ${token}`, // Include the token in the headers
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+            console.log('Project created:', response.data);
+            // Reset the form data after successful submission
+            setProjectData({
+                title: '',
+                description: '',
+                websiteLink: '',
+                youtubeLink: '',
+                client_type: '',
+                about_section: '',
+                coverImage: null,
+                images: [],
+            });
+            
+        } catch (error) {
+            console.error('Error creating project:', error.response ? error.response.data : error.message);
+        }
+    };
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <div>
+                <label>Title:</label>
+                <input
+                    type="text"
+                    name="title"
+                    value={projectData.title}
+                    onChange={(e) => setProjectData({ ...projectData, title: e.target.value })}
+                    required
+                />
+            </div>
+            <div>
+                <label>Description:</label>
+                <textarea
+                    name="description"
+                    value={projectData.description}
+                    onChange={(e) => setProjectData({ ...projectData, description: e.target.value })}
+                    required
+                />
+            </div>
+            <div>
+                <label>Website Link:</label>
+                <input
+                    type="url"
+                    name="websiteLink"
+                    value={projectData.websiteLink}
+                    onChange={(e) => setProjectData({ ...projectData, websiteLink: e.target.value })}
+                />
+            </div>
+            <div>
+                <label>YouTube Link:</label>
+                <input
+                    type="url"
+                    name="youtubeLink"
+                    value={projectData.youtubeLink}
+                    onChange={(e) => setProjectData({ ...projectData, youtubeLink: e.target.value })}
+                />
+            </div>
+            <div>
+                <label>Client Type:</label>
+                <input
+                    type="text"
+                    name="client_type"
+                    value={projectData.client_type}
+                    onChange={(e) => setProjectData({ ...projectData, client_type: e.target.value })}
+                />
+            </div>
+            <div>
+                <label>About Section:</label>
+                <textarea
+                    name="about_section"
+                    value={projectData.about_section}
+                    onChange={(e) => setProjectData({ ...projectData, about_section: e.target.value })}
+                />
+            </div>
+            <div>
+                <label>Cover Image:</label>
+                <input
+                    type="file"
+                    name="coverImage"
+                    accept="image/*"
+                    onChange={handleFileChange}
+                    required
+                />
+            </div>
+            <div>
+                <label>Images:</label>
+                <input
+                    type="file"
+                    name="images"
+                    accept="image/*"
+                    multiple
+                    onChange={handleFileChange}
+                />
+            </div>
+            <button type="submit">Add Project</button>
+        </form>
+    );
 };
 
-export default AdminDashboard;
+export default AddProjectForm;

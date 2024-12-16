@@ -4,10 +4,13 @@ const cors = require('cors');
 const projectRoutes = require('./routes/projects_routes');
 const authRoutes = require('./routes/admin_route');
 const morgan = require('morgan');
-
+const path = require('path'); // Import path module
 
 const app = express();
 const port = process.env.PORT || 5000;
+
+// Serve static files from the uploads directory
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost:27017/links')
@@ -18,10 +21,10 @@ mongoose.connect('mongodb://localhost:27017/links')
 app.use(cors());
 app.use(express.json());
 app.use(morgan('combined'));
-// Use the routes
-app.use('/auth', authRoutes); // Add auth routes
-app.use('/api/projects', projectRoutes);
 
+// Use the routes
+app.use('/auth', authRoutes);
+app.use('/api/projects', projectRoutes);
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);

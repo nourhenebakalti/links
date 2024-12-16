@@ -28,6 +28,8 @@ const LoginPage = () => {
   };
 
   return (
+
+    
     <div style={{ maxWidth: '400px', margin: '0 auto', padding: '2rem' }}>
       <h2>Login</h2>
       {error && <p style={{ color: 'red' }}>{error}</p>}

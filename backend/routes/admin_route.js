@@ -36,16 +36,19 @@ const authMiddleware = async (req, res, next) => {
     }
 };
 
-// Set up multer for dynamic storage based on project title
+// Set up storage for multer
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         const { title } = req.body; // Get project title from request body
         const projectPath = path.join(__dirname, '../uploads', title);
 
         // Create directory if it doesn't exist
-        fs.mkdirSync(projectPath, { recursive: true });
-
-        cb(null, projectPath); // Set the destination to the project folder
+        fs.mkdir(projectPath, { recursive: true }, (err) => {
+            if (err) {
+                return cb(err, null);
+            }
+            cb(null, projectPath);
+        });
     },
     filename: function (req, file, cb) {
         cb(null, Date.now() + '-' + file.originalname); // Create a unique filename
@@ -99,7 +102,7 @@ router.post('/register-admin', async (req, res) => {
 
 // Logout
 router.post('/logout', authMiddleware, (req, res) => {
-    // Clear token logic here as needed
+    
     res.json({ message: 'Logged out successfully' });
 });
 
@@ -134,46 +137,49 @@ router.put('/projects/:id/toggle-hidden', authMiddleware, async (req, res) => {
     }
 });
 
-// Add a new project with image uploads
-router.post('/projects', authMiddleware, upload.array('images', 10), async (req, res) => {
-    const {
-        title,
-        description,
-        coverImage,
-        websiteLink,
-        youtubeLink,
-        client_type,
-        about_section,
-    } = req.body;
+// Add a new project with cover image and multiple images
+router.post('/projects', authMiddleware, upload.fields(
+    [{ name: 'coverImage', maxCount: 1 }, { name: 'images', maxCount: 10 }]
+), async (req, res) => {
+    
+    
+    const { title, description, websiteLink, youtubeLink, client_type, about_section } = req.body;
 
     try {
+        // Check if required fields are provided
+        if (!title || !description || !req.files['coverImage']) {
+            return res.status(400).json({ message: 'Title, description, and cover image are required.' });
+        }
+
+        // Create the new project object
         const newProject = new Project({
             title,
             description,
-            coverImage,
-            images: req.files.map(file => file.path), // Save uploaded image paths
+            coverImage: req.files['coverImage'][0].path,
+            images: req.files['images'] ? req.files['images'].map(file => file.path) : [],
             websiteLink,
             youtubeLink,
             client_type,
             about_section,
         });
 
+        // Attempt to save the new project
         const savedProject = await newProject.save();
-        if (!savedProject) {
-            return res.status(400).json({ message: 'Failed to create project' });
-        }
-
         res.status(201).json(savedProject);
+        
     } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Failed to create project' });
+        console.error('Error creating project:', err); // Log the entire error
+        res.status(500).json({ error: 'Failed to create project', details: err.message });
     }
 });
+
+
+
 
 // Update a project
 router.put('/projects/:id', authMiddleware, async (req, res) => {
     const { id } = req.params;
-    const { updates } = req.body; // Assuming updates is an object containing changes
+    const { updates } = req.body; 
 
     try {
         const project = await Project.findByIdAndUpdate(id, updates, { new: true });
@@ -204,5 +210,30 @@ router.delete('/projects/:id', authMiddleware, async (req, res) => {
         res.status(500).json({ error: 'Failed to delete project' });
     }
 });
+
+
+// Get all images for a project
+router.get('/:id/images', authMiddleware, async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        // Find the project by id
+        const project = await Project.findById(id);
+        if (!project) {
+            return res.status(404).json({ message: 'Project not found' });
+        }
+
+        // Return images array
+        res.json({
+            images: project.images // adjustments can be made based on your project structure
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Failed to retrieve images' });
+    }
+});
+
+
+
 
 module.exports = router;
