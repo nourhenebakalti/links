@@ -1,10 +1,22 @@
 import React from "react";
+import { useRouter } from "next/router";
 import scrollToTop from "../../common/scrollToTo";
 
 const ScrollToTop = () => {
+  const router = useRouter();
+
+  // Define the paths where ScrollToTop should appear
+  const allowedRoutes = ["/", "/home", "/projects", "/contact"]; // Add your desired routes here
+  const showScrollToTop = allowedRoutes.includes(router.pathname);
+
   React.useEffect(() => {
-    scrollToTop()
-  }, [])  
+    if (showScrollToTop) {
+      scrollToTop();
+    }
+  }, [showScrollToTop]);
+
+  if (!showScrollToTop) return null; // Don't render anything if not in allowed routes
+
   return (
     <div className="progress-wrap cursor-pointer">
       <svg
@@ -20,3 +32,5 @@ const ScrollToTop = () => {
 };
 
 export default ScrollToTop;
+
+
