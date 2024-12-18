@@ -1,24 +1,23 @@
 // src/pages/projects.jsx
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useRouter } from 'next/router'; // Import useRouter from next/router
+import { useRouter } from 'next/router';
 
 const ProjectsPage = () => {
   const [projects, setProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
-  const router = useRouter(); // Initialize the router
+  const router = useRouter();
 
   useEffect(() => {
-    const token = localStorage.getItem('authToken'); // Check for the token
+    const token = localStorage.getItem('authToken');
     if (!token) {
-      // Redirect to login if no token is found
-      router.push('/admin/admin_login'); // Use router.push for redirection
+      router.push('/admin/admin_login');
     } else {
       const fetchProjects = async () => {
         try {
           const response = await axios.get('http://localhost:5000/auth/projects', {
             headers: {
-              Authorization: `Bearer ${token}` // Include token in the Authorization header
+              Authorization: `Bearer ${token}`
             }
           });
           setProjects(response.data);
@@ -27,31 +26,66 @@ const ProjectsPage = () => {
         }
       };
 
-      fetchProjects(); // Call the fetchProjects function to retrieve data
+      fetchProjects();
     }
-  }, [router]); // Add router as a dependency
+  }, [router]);
 
   const handleCardClick = (project) => {
-    setSelectedProject(project); // Set selected project to show details
+    setSelectedProject(project);
   };
 
   const handleEdit = (projectId) => {
-    console.log('Editing project:', projectId);
+    // Navigate to the edit page of the specific project
+    router.push(`/admin/edit_project/${projectId}`);
   };
+  
 
-  const handleDelete = (projectId) => {
-    console.log('Deleting project:', projectId);
+  const handleDelete = async (projectId) => {
+    
+    if (window.confirm('Are you sure you want to delete this project?')) {
+      const token = localStorage.getItem('authToken');
+      if (token) {
+        try {
+          const response = await axios.delete(`http://localhost:5000/auth/projects/${projectId}`, {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          });
+          
+          // Remove the deleted project from state
+          setProjects(prevProjects => {
+            const updatedProjects = prevProjects.filter(project => project._id !== projectId);
+            // If the deleted project was selected, clear the selected project
+            if (selectedProject && selectedProject._id === projectId) {
+              setSelectedProject(null); // Deselect the project
+            }
+            return updatedProjects;
+          });
+        } catch (error) {
+          console.error('Error deleting project:', error);
+        }
+      } else {
+        console.error('No auth token found');
+      }
+    }
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('authToken'); // Remove the token from localStorage
-    router.push('/admin/admin_login'); // Redirect to login page
+    localStorage.removeItem('authToken');
+    router.push('/admin/admin_login');
+  };
+
+  const handleAddProject = () => {
+    router.push('/admin/add_project');
   };
 
   return (
     <div style={containerStyle}>
       <h1 style={{ textAlign: 'center' }}>Projects</h1>
-      <button onClick={handleLogout} style={buttonStyle}>Logout</button> {/* Logout button */}
+      <div style={buttonContainerStyle}>
+        <button onClick={handleAddProject} style={buttonStyle}>Add Project</button>
+        <button onClick={handleLogout} style={buttonStyle}>Logout</button>
+      </div>
       {selectedProject ? (
         <div style={detailStyle}>
           <h2>Title: {selectedProject.title}</h2>
@@ -64,16 +98,22 @@ const ProjectsPage = () => {
         <div style={cardContainerStyle}>
           {projects.map((project) => (
             <div
-              key={project.id} // Ensure `project.id` is unique for each project
+              key={project._id}
               className="project-card"
               style={cardStyle}
               onClick={() => handleCardClick(project)}
             >
+              
+        <img 
+        src={`http://localhost:5000${project.coverImage}`} 
+        alt={project.title} 
+        style={imageStyle}  /> 
+
               <h2>Title: {project.title}</h2>
               <p>{project.description}</p>
               <div style={{ marginTop: '10px' }}>
-                <button onClick={() => handleEdit(project.id)} style={buttonStyle}>Edit</button>
-                <button onClick={() => handleDelete(project.id)} style={buttonStyle}>Delete</button>
+                <button onClick={() => handleEdit(project._id)} style={buttonStyle}>Edit</button>
+                <button onClick={() => handleDelete(project._id)} style={buttonStyle}>Delete</button>
               </div>
             </div>
           ))}
@@ -88,6 +128,12 @@ const containerStyle = {
   backgroundColor: '#f4f4f9',
 };
 
+const buttonContainerStyle = {
+  display: 'flex',
+  justifyContent: 'flex-end',
+  marginBottom: '20px',
+};
+
 const cardContainerStyle = {
   display: 'flex',
   flexWrap: 'wrap',
@@ -100,7 +146,7 @@ const detailStyle = {
   backgroundColor: 'white',
   borderRadius: '8px',
   boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-  textAlign: 'center'
+  textAlign: 'center',
 };
 
 const cardStyle = {
@@ -111,7 +157,14 @@ const cardStyle = {
   borderRadius: '8px',
   boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
   textAlign: 'center',
-  cursor: 'pointer'
+  cursor: 'pointer',
+};
+
+const imageStyle = {
+  width: '3%',  // Adjust width as needed
+  height: 'auto',  // Maintain aspect ratio
+  borderRadius: '4px',  // Optional: round the corners
+  marginBottom: '10px',  // Space below the image
 };
 
 const buttonStyle = {
@@ -121,7 +174,7 @@ const buttonStyle = {
   color: 'white',
   border: 'none',
   borderRadius: '4px',
-  cursor: 'pointer'
+  cursor: 'pointer',
 };
 
 export default ProjectsPage;

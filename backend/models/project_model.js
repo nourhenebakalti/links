@@ -11,7 +11,7 @@ const projectSchema = new mongoose.Schema({
   about_section: { type: String, default: '' },
   dateOfCreation: { type: Date, default: Date.now },
   dateOfModification: { type: Date, default: Date.now },
-  hidden: { type: Boolean, default: false },
+  hidden: { type: Boolean, default: true },
 });
 
 // Middleware to update dateOfModification before saving

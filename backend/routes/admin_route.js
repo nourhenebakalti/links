@@ -40,22 +40,24 @@ const authMiddleware = async (req, res, next) => {
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         const { title } = req.body; // Get project title from request body
-        const projectPath = path.join(__dirname, '../uploads', title);
+        const projectPath = path.join(__dirname, '../uploads', title); // Directory for project images
 
         // Create directory if it doesn't exist
         fs.mkdir(projectPath, { recursive: true }, (err) => {
             if (err) {
-                return cb(err, null);
+                return cb(err); // Pass the error to the callback
             }
-            cb(null, projectPath);
+            cb(null, projectPath); // Set the destination directory
         });
     },
     filename: function (req, file, cb) {
-        cb(null, Date.now() + '-' + file.originalname); // Create a unique filename
+        // Create a unique filename using current timestamp and original file name
+        cb(null, Date.now() + '-' + file.originalname);
     },
 });
 
 const upload = multer({ storage });
+
 
 // Login
 router.post('/login', async (req, res) => {
@@ -117,6 +119,30 @@ router.get('/projects', authMiddleware, async (req, res) => {
     }
 });
 
+
+
+router.get('/projects/:id', authMiddleware, async (req, res) => {
+    const { id } = req.params; // Extract project ID from route params
+
+    try {
+        const project = await Project.findById(id);
+        if (!project) {
+            return res.status(404).json({ message: 'Project not found' });
+        }
+        res.json(project); // Return the found project
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Failed to fetch project' });
+    }
+});
+
+
+
+
+
+
+
+
 // Toggle project visibility
 router.put('/projects/:id/toggle-hidden', authMiddleware, async (req, res) => {
     const { id } = req.params;
@@ -141,8 +167,6 @@ router.put('/projects/:id/toggle-hidden', authMiddleware, async (req, res) => {
 router.post('/projects', authMiddleware, upload.fields(
     [{ name: 'coverImage', maxCount: 1 }, { name: 'images', maxCount: 10 }]
 ), async (req, res) => {
-    
-    
     const { title, description, websiteLink, youtubeLink, client_type, about_section } = req.body;
 
     try {
@@ -151,12 +175,17 @@ router.post('/projects', authMiddleware, upload.fields(
             return res.status(400).json({ message: 'Title, description, and cover image are required.' });
         }
 
+        // Construct the relative paths for cover image and images
+        const coverImagePath = `/uploads/${title}/${req.files['coverImage'][0].filename}`;
+        const imagesPaths = req.files['images'] ? 
+            req.files['images'].map(file => `/uploads/${title}/${file.filename}`) : [];
+
         // Create the new project object
         const newProject = new Project({
             title,
             description,
-            coverImage: req.files['coverImage'][0].path,
-            images: req.files['images'] ? req.files['images'].map(file => file.path) : [],
+            coverImage: coverImagePath,
+            images: imagesPaths,
             websiteLink,
             youtubeLink,
             client_type,
@@ -176,10 +205,21 @@ router.post('/projects', authMiddleware, upload.fields(
 
 
 
-// Update a project
-router.put('/projects/:id', authMiddleware, async (req, res) => {
+
+router.put('/projects/:id', upload.fields([
+    { name: 'coverImage', maxCount: 1 },
+    { name: 'images', maxCount: 10 },
+]), async (req, res) => {
     const { id } = req.params;
-    const { updates } = req.body; 
+    const updates = req.body;
+    if (req.files) {
+        if (req.files.coverImage) {
+            updates.coverImage = `/uploads/${req.files.coverImage[0].filename}`;
+        }
+        if (req.files.images) {
+            updates.images = req.files.images.map(file => `/uploads/${file.filename}`);
+        }
+    }
 
     try {
         const project = await Project.findByIdAndUpdate(id, updates, { new: true });
@@ -189,27 +229,44 @@ router.put('/projects/:id', authMiddleware, async (req, res) => {
 
         res.json(project);
     } catch (err) {
-        console.error(err);
+        console.error('Failed to update project:', err);
         res.status(500).json({ error: 'Failed to update project' });
     }
 });
 
 // Delete a project
 router.delete('/projects/:id', authMiddleware, async (req, res) => {
-    const { id } = req.params;
+    const { id } = req.params; 
 
     try {
-        const project = await Project.findByIdAndDelete(id);
+        // Find the project to delete, so we can get its title for the folder path
+        const project = await Project.findById(id); 
         if (!project) {
             return res.status(404).json({ message: 'Project not found' });
         }
 
-        res.json({ message: 'Project deleted successfully' });
+        // Construct the path to the project folder
+        const projectPath = path.join(__dirname, '../uploads', project.title);
+
+        // Delete the project from the database
+        await Project.findByIdAndDelete(id); 
+
+        // Remove the directory and its contents
+        fs.rmdir(projectPath, { recursive: true }, (err) => {
+            if (err) {
+                console.error('Failed to delete project images:', err);
+                return res.status(500).json({ message: 'Failed to delete project images' });
+            }
+
+            res.json({ message: 'Project deleted successfully and images removed.' }); 
+        });
+
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: 'Failed to delete project' });
     }
 });
+
 
 
 // Get all images for a project
@@ -225,7 +282,8 @@ router.get('/:id/images', authMiddleware, async (req, res) => {
 
         // Return images array
         res.json({
-            images: project.images // adjustments can be made based on your project structure
+            coverImage: project.coverImage,
+            images: project.images 
         });
     } catch (err) {
         console.error(err);
