@@ -11,8 +11,11 @@ const EditProjectForm = ({ projectId }) => {
         youtubeLink: '',
         client_type: '',
         about_section: '',
+        categories: '',
+        location: '',
         coverImage: null,
         images: [],
+        bulletPoints: [''], 
     });
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
@@ -55,6 +58,24 @@ const EditProjectForm = ({ projectId }) => {
         setProjectData({ ...projectData, [name]: value });
     };
 
+    const handleBulletPointChange = (index, value) => {
+        const newBulletPoints = [...projectData.bulletPoints];
+        newBulletPoints[index] = value;
+        setProjectData({ ...projectData, bulletPoints: newBulletPoints });
+    };
+
+    const addBulletPoint = () => {
+        setProjectData({ 
+            ...projectData, 
+            bulletPoints: [...projectData.bulletPoints, ''] 
+        }); // Add a new empty bullet point
+    };
+
+    const deleteBulletPoint = (index) => {
+        const newBulletPoints = projectData.bulletPoints.filter((_, i) => i !== index); // Remove the bullet point
+        setProjectData({ ...projectData, bulletPoints: newBulletPoints });
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const token = localStorage.getItem('authToken');
@@ -66,7 +87,7 @@ const EditProjectForm = ({ projectId }) => {
                 formData.append(key, projectData[key]);
             } else if (key === 'images' && projectData[key].length > 0) {
                 Array.from(projectData[key]).forEach(file => formData.append(key, file));
-            } else if (projectData[key]) {
+            } else {
                 formData.append(key, projectData[key]);
             }
         }
@@ -123,6 +144,41 @@ const EditProjectForm = ({ projectId }) => {
             <div>
                 <label>About Section:</label>
                 <textarea name="about_section" value={projectData.about_section} onChange={handleInputChange} />
+            </div>
+            <div>
+                <label>Categories:</label>
+                <input
+                    type="text"
+                    name="categories"
+                    value={projectData.categories}
+                    onChange={handleInputChange}
+                    placeholder="Enter categories separated by commas"
+                />
+            </div>
+            <div>
+                <label>Location:</label>
+                <input
+                    type="text"
+                    name="location"
+                    value={projectData.location}
+                    onChange={handleInputChange}
+                />
+            </div>
+            {/* Bullet Points Section */}
+            <div>
+                <label>Bullet Points:</label>
+                {projectData.bulletPoints.map((bulletPoint, index) => (
+                    <div key={index} style={{ marginBottom: '10px' }}>
+                        <input
+                            type="text"
+                            value={bulletPoint}
+                            onChange={(e) => handleBulletPointChange(index, e.target.value)}
+                            placeholder="Enter bullet point" 
+                        />
+                        <button type="button" onClick={() => deleteBulletPoint(index)}>Delete</button>
+                    </div>
+                ))}
+                <button type="button" onClick={addBulletPoint}>Add Another Bullet Point</button>
             </div>
             <div>
                 <label>Cover Image:</label>

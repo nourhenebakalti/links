@@ -44,7 +44,7 @@ const Works3Dark = () => {
         <meta name="description" content="Step into our world of creativity and innovation. Explore past projects showcasing the LINKS STATION difference. Each a testament to our commitment to excellence, creativity, and results. Ready to be inspired? Dive into our portfolio"/>
       </Helmet>
       <div className="main-content" ref={MainContent}>
-        <PortfolioCustomColumn column={2}/>
+        <PortfolioCustomColumn  column={3}/>
         <CallToAction theme="dark" />
         <Footer noSubBG />
       </div>

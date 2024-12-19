@@ -36,11 +36,15 @@ const authMiddleware = async (req, res, next) => {
     }
 };
 
-// Set up storage for multer
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        const { title } = req.body; // Get project title from request body
-        const projectPath = path.join(__dirname, '../uploads', title); // Directory for project images
+        let { title } = req.body; // Get project title from request body
+
+        // Replace spaces with underscores in the title
+        title = title.replace(/\s+/g, '_');
+
+        // Directory for project images
+        const projectPath = path.join(__dirname, '../uploads', title);
 
         // Create directory if it doesn't exist
         fs.mkdir(projectPath, { recursive: true }, (err) => {
@@ -52,11 +56,12 @@ const storage = multer.diskStorage({
     },
     filename: function (req, file, cb) {
         // Create a unique filename using current timestamp and original file name
-        cb(null, Date.now() + '-' + file.originalname);
+        cb(null, Date.now() + '-' + file.originalname.replace(/\s+/g, '_'));
     },
 });
 
 const upload = multer({ storage });
+
 
 
 // Login
@@ -163,33 +168,35 @@ router.put('/projects/:id/toggle-hidden', authMiddleware, async (req, res) => {
     }
 });
 
-// Add a new project with cover image and multiple images
+// Add a new project with cover image, multiple images, and bullet points
 router.post('/projects', authMiddleware, upload.fields(
     [{ name: 'coverImage', maxCount: 1 }, { name: 'images', maxCount: 10 }]
 ), async (req, res) => {
-    const { title, description, websiteLink, youtubeLink, client_type, about_section } = req.body;
+    const { title, description, websiteLink, youtubeLink, client_type, about_section, categories, location, bulletPoints } = req.body;
 
     try {
         // Check if required fields are provided
         if (!title || !description || !req.files['coverImage']) {
             return res.status(400).json({ message: 'Title, description, and cover image are required.' });
         }
-
         // Construct the relative paths for cover image and images
-        const coverImagePath = `/uploads/${title}/${req.files['coverImage'][0].filename}`;
+        const coverImagePath = `/uploads/${title.replace(/\s+/g, '_')}/${req.files['coverImage'][0].filename}`;
         const imagesPaths = req.files['images'] ? 
-            req.files['images'].map(file => `/uploads/${title}/${file.filename}`) : [];
+            req.files['images'].map(file => `/uploads/${title.replace(/\s+/g, '_')}/${file.filename.replace(/\s+/g, '_')}`) : [];
 
-        // Create the new project object
+        // Create the new project object with bullet points, categories, and location
         const newProject = new Project({
             title,
             description,
+            bulletPoints: bulletPoints || [], 
             coverImage: coverImagePath,
             images: imagesPaths,
             websiteLink,
             youtubeLink,
             client_type,
             about_section,
+            categories: categories || '', 
+            location: location || '', 
         });
 
         // Attempt to save the new project
@@ -201,6 +208,8 @@ router.post('/projects', authMiddleware, upload.fields(
         res.status(500).json({ error: 'Failed to create project', details: err.message });
     }
 });
+
+
 
 
 

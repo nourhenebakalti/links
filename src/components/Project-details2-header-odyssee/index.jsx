@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-const ProjectDetails2Header = () => {
+const ProjectDetails2Header = ({data}) => {
   return (
     <section
       className="page-header proj-det bg-img parallaxie valign"

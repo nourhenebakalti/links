@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 import { Helmet } from "react-helmet";
 import ProjectDetails2Header from "../components/Project-details2-header-odyssee";
 import ProjectDetails2Introduction from "../components/Project-details2-introduction-odyssee";
-import ProjectDetails2Images from "../components/Project-details2-images-odyssee";
+import ProjectDetails2Images from "../components/Project-details2-images";
 import ProjectDetailsDescription from "../components/Project-details-description";
 import ProjectDetailsVideo from "../components/Project-details-video";
 import Works1Slider from "../components/Works1-slider";

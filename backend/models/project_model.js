@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const projectSchema = new mongoose.Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
+  bulletPoints: { type: [String], default: [] },
   coverImage: { type: String, required: true },
   images: { type: [String], default: [] },
   websiteLink: { type: String, default: '' },
@@ -12,6 +13,8 @@ const projectSchema = new mongoose.Schema({
   dateOfCreation: { type: Date, default: Date.now },
   dateOfModification: { type: Date, default: Date.now },
   hidden: { type: Boolean, default: true },
+  categories: { type: String, default: '' }, 
+  location: { type: String, default: '' },     
 });
 
 // Middleware to update dateOfModification before saving

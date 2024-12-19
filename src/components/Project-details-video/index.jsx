@@ -10,7 +10,8 @@ const ProjectDetailsVideo = ({ videoBackground, videoUrl }) => {
     console.clear();
   }, []);
 
-  const isYouTubeVideo = videoUrl.includes('youtube.com');
+  // Safely check if videoUrl includes 'youtube.com'
+  const isYouTubeVideo = videoUrl?.includes('youtube.com');
 
   return (
     <section>
@@ -20,16 +21,11 @@ const ProjectDetailsVideo = ({ videoBackground, videoUrl }) => {
           // Use react-youtube component for YouTube videos
           <YouTube
             videoId={getYouTubeVideoId(videoUrl)}
-            containerClassName="youtube-container" // Add a custom class for styling
+            containerClassName="youtube-container" 
             opts={{
               width: "90%",
               playerVars: {
-                // Set a fixed aspect ratio for horizontal rectangle (16:9)
-                // Adjust height according to the aspect ratio
-                // For example, if width is 90%, height should be 90% * (9/16)
-                // You can adjust this value based on your preference
-                height: "50.625vw", // 90% * (9/16)
-                // Add any other player options here
+                height: "50.625vw", // Adjust aspect ratio
               },
             }}
           />
@@ -39,11 +35,7 @@ const ProjectDetailsVideo = ({ videoBackground, videoUrl }) => {
             <EmbeddedVideo
               href={videoUrl}
               width="90%"
-              // Set a fixed aspect ratio for horizontal rectangle (16:9)
-              // Adjust height according to the aspect ratio
-              // For example, if width is 90%, height should be 90% * (9/16)
-              // You can adjust this value based on your preference
-              height="50.625vw" // 90% * (9/16)
+              height="50.625vw" // Adjust aspect ratio
             />
           </FacebookProvider>
         )}

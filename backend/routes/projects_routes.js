@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Project = require('../models/project_model');
-
+const fs = require('fs');
+const path = require('path');
 // API endpoint to fetch projects (filtered by hidden)
 router.get('/', async (req, res) => {
     try {

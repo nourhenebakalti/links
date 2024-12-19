@@ -14,7 +14,6 @@ const initIsotope = () => {
         return;
       }
       var filterValue = event.target.getAttribute("data-filter");
-      filterValue = filterValue;
       iso.arrange({ filter: filterValue });
     });
     var buttonGroups = document.querySelectorAll(".filtering");
