@@ -79,7 +79,7 @@ router.post('/login', async (req, res) => {
             return res.status(401).json({ error: 'Invalid email or password' });
         }
 
-        const token = jwt.sign({ userId: user._id }, 'your_secret_key', { expiresIn: '1h' }); // Change in production
+        const token = jwt.sign({ userId: user._id }, 'your_secret_key', { expiresIn: '48h' }); // Change in production
         res.json({ token });
     } catch (err) {
         res.status(500).json({ error: 'Server Error' });
@@ -168,23 +168,51 @@ router.put('/projects/:id/toggle-hidden', authMiddleware, async (req, res) => {
     }
 });
 
-// Add a new project with cover image, multiple images, and bullet points
-router.post('/projects', authMiddleware, upload.fields(
-    [{ name: 'coverImage', maxCount: 1 }, { name: 'images', maxCount: 10 }]
-), async (req, res) => {
-    const { title, description, websiteLink, youtubeLink, client_type, about_section, categories, location, bulletPoints } = req.body;
+
+
+
+
+
+
+
+
+// Create a new project
+router.post('/projects', authMiddleware, upload.fields([
+    { name: 'coverImage', maxCount: 1 },
+    { name: 'images', maxCount: 5 },
+    { name: 'behindTheSeancesPictures', maxCount: 5 }
+]), async (req, res) => {
+    const { 
+        title, 
+        description, 
+        websiteLink, 
+        youtubeLink, 
+        client_type, 
+        about_section, 
+        categories, 
+        location, 
+        bulletPoints, 
+        behindTheSeance  
+    } = req.body;
 
     try {
         // Check if required fields are provided
         if (!title || !description || !req.files['coverImage']) {
             return res.status(400).json({ message: 'Title, description, and cover image are required.' });
         }
-        // Construct the relative paths for cover image and images
-        const coverImagePath = `/uploads/${title.replace(/\s+/g, '_')}/${req.files['coverImage'][0].filename}`;
+        
+        // Construct the project title-safe directory
+        const projectTitle = title.replace(/\s+/g, '_');
+        const coverImagePath = `/uploads/${projectTitle}/${req.files['coverImage'][0].filename.replace(/\s+/g, '_')}`;
+        
         const imagesPaths = req.files['images'] ? 
-            req.files['images'].map(file => `/uploads/${title.replace(/\s+/g, '_')}/${file.filename.replace(/\s+/g, '_')}`) : [];
+            req.files['images'].map(file => `/uploads/${projectTitle}/${file.filename.replace(/\s+/g, '_')}`) : [];
+        
+        // Handle behind the seance pictures
+        const behindTheSeancesPicturesPaths = req.files['behindTheSeancesPictures'] ? 
+            req.files['behindTheSeancesPictures'].map(file => `/uploads/${projectTitle}/${file.filename.replace(/\s+/g, '_')}`) : [];
 
-        // Create the new project object with bullet points, categories, and location
+        // Create the new project object
         const newProject = new Project({
             title,
             description,
@@ -197,37 +225,52 @@ router.post('/projects', authMiddleware, upload.fields(
             about_section,
             categories: categories || '', 
             location: location || '', 
+            behindTheSeance: behindTheSeance === 'true', // Ensure boolean conversion
+            behindTheSeancesPictures: behindTheSeancesPicturesPaths
         });
 
-        // Attempt to save the new project
         const savedProject = await newProject.save();
         res.status(201).json(savedProject);
         
     } catch (err) {
-        console.error('Error creating project:', err); // Log the entire error
+        console.error('Error creating project:', err);
         res.status(500).json({ error: 'Failed to create project', details: err.message });
     }
 });
 
-
-
-
-
-
-
+// Update a project
 router.put('/projects/:id', upload.fields([
     { name: 'coverImage', maxCount: 1 },
-    { name: 'images', maxCount: 10 },
+    { name: 'images', maxCount: 5 },
+    { name: 'behindTheSeancesPictures', maxCount: 5 },
 ]), async (req, res) => {
     const { id } = req.params;
     const updates = req.body;
+
+    // Handle bulletPoints: split if it's a comma-separated string
+    if (updates.bulletPoints) {
+        // Assuming the bullet points are sent as a comma-separated string
+        updates.bulletPoints = updates.bulletPoints.split(',').map(item => item.trim());
+    }
+
+    // Handle file uploads and update paths
     if (req.files) {
+        const projectTitle = updates.title.replace(/\s+/g, '_'); // Ensure title is sanitized for path
+
         if (req.files.coverImage) {
-            updates.coverImage = `/uploads/${req.files.coverImage[0].filename}`;
+            updates.coverImage = `/uploads/${projectTitle}/${req.files.coverImage[0].filename.replace(/\s+/g, '_')}`;
         }
         if (req.files.images) {
-            updates.images = req.files.images.map(file => `/uploads/${file.filename}`);
+            updates.images = req.files.images.map(file => `/uploads/${projectTitle}/${file.filename.replace(/\s+/g, '_')}`);
         }
+        if (req.files.behindTheSeancesPictures) {
+            updates.behindTheSeancesPictures = req.files.behindTheSeancesPictures.map(file => `/uploads/${projectTitle}/${file.filename.replace(/\s+/g, '_')}`);
+        }
+    }
+    
+    // Ensure behindTheSeance is a boolean value
+    if (updates.behindTheSeance !== undefined) {
+        updates.behindTheSeance = updates.behindTheSeance === 'true'; // Convert to boolean
     }
 
     try {
@@ -242,6 +285,8 @@ router.put('/projects/:id', upload.fields([
         res.status(500).json({ error: 'Failed to update project' });
     }
 });
+
+
 
 // Delete a project
 router.delete('/projects/:id', authMiddleware, async (req, res) => {
@@ -299,8 +344,5 @@ router.get('/:id/images', authMiddleware, async (req, res) => {
         res.status(500).json({ error: 'Failed to retrieve images' });
     }
 });
-
-
-
 
 module.exports = router;

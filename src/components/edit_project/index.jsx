@@ -16,6 +16,8 @@ const EditProjectForm = ({ projectId }) => {
         coverImage: null,
         images: [],
         bulletPoints: [''], 
+        behindTheSeance: false, // State for the checkbox
+        behindTheSeancesPictures: [] // Array for multiple file uploads
     });
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
@@ -50,6 +52,8 @@ const EditProjectForm = ({ projectId }) => {
             setProjectData({ ...projectData, coverImage: files[0] });
         } else if (name === 'images') {
             setProjectData({ ...projectData, images: files });
+        } else if (name === 'behindTheSeancesPictures') {
+            setProjectData({ ...projectData, behindTheSeancesPictures: files });
         }
     };
 
@@ -68,11 +72,11 @@ const EditProjectForm = ({ projectId }) => {
         setProjectData({ 
             ...projectData, 
             bulletPoints: [...projectData.bulletPoints, ''] 
-        }); // Add a new empty bullet point
+        });
     };
 
     const deleteBulletPoint = (index) => {
-        const newBulletPoints = projectData.bulletPoints.filter((_, i) => i !== index); // Remove the bullet point
+        const newBulletPoints = projectData.bulletPoints.filter((_, i) => i !== index);
         setProjectData({ ...projectData, bulletPoints: newBulletPoints });
     };
 
@@ -81,12 +85,13 @@ const EditProjectForm = ({ projectId }) => {
         const token = localStorage.getItem('authToken');
         const formData = new FormData();
     
-        // Append all fields to FormData
         for (const key in projectData) {
             if (key === 'coverImage' && projectData[key]) {
                 formData.append(key, projectData[key]);
             } else if (key === 'images' && projectData[key].length > 0) {
                 Array.from(projectData[key]).forEach(file => formData.append(key, file));
+            } else if (key === 'behindTheSeancesPictures') {
+                Array.from(projectData.behindTheSeancesPictures).forEach(file => formData.append(key, file));
             } else {
                 formData.append(key, projectData[key]);
             }
@@ -164,6 +169,27 @@ const EditProjectForm = ({ projectId }) => {
                     onChange={handleInputChange}
                 />
             </div>
+            <div>
+                <label>Behind the Seance:</label>
+                <input
+                    type="checkbox"
+                    checked={projectData.behindTheSeance}
+                    onChange={(e) => setProjectData({ ...projectData, behindTheSeance: e.target.checked })}
+                />
+            </div>
+            {/* Conditionally render Behind Seance Pictures input */}
+            {projectData.behindTheSeance && (
+                <div>
+                    <label>Behind the Seance Pictures:</label>
+                    <input
+                        type="file"
+                        name="behindTheSeancesPictures"
+                        accept="image/*"
+                        multiple
+                        onChange={handleFileChange}
+                    />
+                </div>
+            )}
             {/* Bullet Points Section */}
             <div>
                 <label>Bullet Points:</label>

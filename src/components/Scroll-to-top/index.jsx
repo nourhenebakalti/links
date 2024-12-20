@@ -6,7 +6,7 @@ const ScrollToTop = () => {
   const router = useRouter();
 
   // Define the paths where ScrollToTop should appear
-  const allowedRoutes = ["/", "/home", "/projects", "/contact"]; // Add your desired routes here
+  const allowedRoutes = ["/", "/home", "/projects", "/contact","/project_details/"]; // Add your desired routes here
   const showScrollToTop = allowedRoutes.includes(router.pathname);
 
   React.useEffect(() => {

@@ -25,7 +25,7 @@ const ProjectDetailsVideo = ({ videoBackground, videoUrl }) => {
             opts={{
               width: "90%",
               playerVars: {
-                height: "50.625vw", // Adjust aspect ratio
+                height: "56.25vw", // Adjust aspect ratio
               },
             }}
           />
@@ -35,7 +35,7 @@ const ProjectDetailsVideo = ({ videoBackground, videoUrl }) => {
             <EmbeddedVideo
               href={videoUrl}
               width="90%"
-              height="50.625vw" // Adjust aspect ratio
+              height="56.25vw" // Adjust aspect ratio
             />
           </FacebookProvider>
         )}

@@ -1,17 +1,20 @@
 import React from "react";
-import works1SliderData from "../../data/sections/works1SliderPenelope.json";
 import { Swiper, SwiperSlide } from "swiper/react";
-// import Swiper core and required modules
 import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper";
 import Link from "next/link";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
-const Works1Slider = () => {
+const Works1Slider = ({ behindTheSeancesPictures = [] }) => {
   const navigationPrevRef = React.useRef(null);
   const navigationNextRef = React.useRef(null);
+  
+  // Base URL for the images
+  const baseURL = 'http://localhost:5000';
+
   return (
     <section className="work-carousel section-padding pt-0 metro position-re">
       <div className="container ontop">
@@ -35,7 +38,6 @@ const Works1Slider = () => {
                   setTimeout(() => {
                     swiper.params.navigation.prevEl = navigationPrevRef.current;
                     swiper.params.navigation.nextEl = navigationNextRef.current;
-
                     swiper.navigation.destroy();
                     swiper.navigation.init();
                     swiper.navigation.update();
@@ -65,26 +67,25 @@ const Works1Slider = () => {
                   },
                 }}
               >
-                {works1SliderData.map((slide) => (
-                  <SwiperSlide key={slide.id} className="swiper-slide">
-                    <div
-                      className="content wow noraidus fadeInUp"
-                      data-wow-delay=".3s"
-                    >
+                {behindTheSeancesPictures.map((imgPath, index) => (
+                  <SwiperSlide key={index} className="swiper-slide">
+                    <div className="content wow noraidus fadeInUp" data-wow-delay=".3s">
                       <div
                         className="item-img bg-img wow imago"
                         style={{
-                          backgroundImage: `url(${slide.image})`,
-                          aria_label: 'slide.alt',
+                          backgroundImage: `url(${baseURL}${imgPath})`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
                         }}
+                        aria-label="Slide Image"
                       ></div>
                       <div className="cont">
                         <h6 className="color-font">
-                          <Link href="/works/works-dark">{slide.title}</Link>
+                          <Link href="/works/works-dark">Image Title</Link>
                         </h6>
                         <h4>
                           <Link href="/project-details2/project-details2-dark">
-                            {slide.secTex}
+                            Image Description
                           </Link>
                         </h4>
                       </div>

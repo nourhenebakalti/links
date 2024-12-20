@@ -31,7 +31,7 @@ const ProjectDetailsImages = ({images=[]}) => {
             </div>
             <div className="col-12">
               <a>
-                <img alt="A woman lying on her back for a neck massage inside a spa." src="/img/portfolio/project2/pen7.jpg" className="big-img" />
+                <img alt="A woman lying on her back for a neck massage inside a spa." src={`http://localhost:5000${images[4]}`} className="big-img" />
               </a>
             </div>
           </div>

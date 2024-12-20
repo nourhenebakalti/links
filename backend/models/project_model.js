@@ -14,7 +14,9 @@ const projectSchema = new mongoose.Schema({
   dateOfModification: { type: Date, default: Date.now },
   hidden: { type: Boolean, default: true },
   categories: { type: String, default: '' }, 
-  location: { type: String, default: '' },     
+  location: { type: String, default: '' },
+  behindTheSeance: { type: Boolean, default: false },
+  behindTheSeancesPictures: { type: [String], default: [] } 
 });
 
 // Middleware to update dateOfModification before saving

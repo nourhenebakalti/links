@@ -56,9 +56,9 @@ const Footer = ({ noSubBG }) => {
           <div className="col-lg-5 offset-lg-2">
             <div className="subscribe mb-50">
             <div className="insta">
-              <h6 className="custom-font stit simple-btn">Instagram Post</h6>
+              {/* <h6 className="custom-font stit simple-btn">Instagram Post</h6> */}
               <div className="insta-gallary">
-              <a href="https://www.instagram.com/p/CnsEO8zB2I4/">
+              {/* <a href="https://www.instagram.com/p/CnsEO8zB2I4/">
   <img src="/img/insta/1.jpg" alt="A snippet from an instagram post that showcases some work that Links Station did for one of their clients." style={{ border: '3px solid #6f42c1', borderRadius: '50%' }} />
 </a>
 <a href="https://www.instagram.com/p/Cnr8LruhY_C/">
@@ -66,7 +66,7 @@ const Footer = ({ noSubBG }) => {
 </a>
 <a href="https://www.instagram.com/p/Cl1CRVKDqQ2/">
   <img src="/img/insta/3.jpg" alt="A snippet from an instagram post that showcases some work that Links Station did for one of their clients." style={{ border: '3px solid #6f42c1', borderRadius: '50%' }} />
-</a>
+</a> */}
               </div>
             </div>
             <br/>

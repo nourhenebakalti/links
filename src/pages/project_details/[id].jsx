@@ -10,6 +10,7 @@ import ProjectDetailsVideo from "../../components/Project-details-video";
 import Works1Slider from "../../components/Works1-slider";
 import Footer from "../../components/Footer";
 import { useRouter } from 'next/router';
+import CallToAction from "../../components/Call-to-action";
 
 const ProjectDetails = () => {
     const navbarRef = React.useRef(null);
@@ -91,7 +92,8 @@ const ProjectDetails = () => {
         <br></br>
         <br></br>
         <br></br>
-        <Works1Slider/>
+        {project?.behindTheSeance && <Works1Slider behindTheSeancesPictures={project?.behindTheSeancesPictures} />}
+        <CallToAction theme="dark" />
         <Footer noSubBG />
       </DarkTheme>
     );

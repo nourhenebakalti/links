@@ -15,7 +15,9 @@ const AddProjectForm = () => {
         location: '',
         coverImage: null,
         images: [],
-        bulletPoints: [''] // Initial bullet point input
+        bulletPoints: [''], // Initial bullet point input
+        behindTheSeance: false, // State to manage the checkbox
+        behindTheSeancesPictures: [] // Array for multiple file uploads
     });
     const [successMessage, setSuccessMessage] = useState(''); 
 
@@ -30,8 +32,10 @@ const AddProjectForm = () => {
         const { name, files } = e.target;
         if (name === 'coverImage') {
             setProjectData({ ...projectData, coverImage: files[0] }); 
-        } else {
+        } else if (name === 'images') {
             setProjectData({ ...projectData, images: files }); 
+        } else if (name === 'behindTheSeancesPictures') {
+            setProjectData({ ...projectData, behindTheSeancesPictures: files }); // Set for multiple uploads
         }
     };
 
@@ -63,6 +67,12 @@ const AddProjectForm = () => {
                         formData.append('images', file); 
                     }
                 });
+            } else if (key === 'behindTheSeancesPictures') {
+                Array.from(projectData.behindTheSeancesPictures).forEach(file => {
+                    if (file) {
+                        formData.append('behindTheSeancesPictures', file); // Append each picture file
+                    }
+                });
             } else if (key === 'bulletPoints') {
                 projectData.bulletPoints.forEach(point => {
                     formData.append('bulletPoints', point); 
@@ -83,6 +93,7 @@ const AddProjectForm = () => {
             });
 
             setSuccessMessage(`Successfully created project: ${response.data.title}`);
+            // Reset the form
             setProjectData({
                 title: '',
                 description: '',
@@ -94,12 +105,14 @@ const AddProjectForm = () => {
                 location: '',
                 coverImage: null,
                 images: [],
-                bulletPoints: [''] // Reset bullet points after submission
+                bulletPoints: [''], // Reset bullet points after submission
+                behindTheSeance: false, // Reset after submission
+                behindTheSeancesPictures: [] // Reset after submission
             });
             
         } catch (error) {
             console.error('Error creating project:', error.response ? error.response.data : error.message);
-            setSuccessMessage('');
+            setSuccessMessage(''); // Clear success message if there's an error
         }
     };
 
@@ -185,6 +198,27 @@ const AddProjectForm = () => {
                     onChange={(e) => setProjectData({ ...projectData, location: e.target.value })}
                 />
             </div>
+            <div>
+                <label>Behind the Seance:</label>
+                <input
+                    type="checkbox"
+                    checked={projectData.behindTheSeance}
+                    onChange={(e) => setProjectData({ ...projectData, behindTheSeance: e.target.checked })}
+                />
+            </div>
+            {/* Conditionally render Behind Seance Pictures input */}
+            {projectData.behindTheSeance && (
+                <div>
+                    <label>Behind the Seance Pictures:</label>
+                    <input
+                        type="file"
+                        name="behindTheSeancesPictures"
+                        accept="image/*"
+                        multiple
+                        onChange={handleFileChange} // File input for behindTheSeancesPictures
+                    />
+                </div>
+            )}
             {/* Bullet Points Section */}
             <div>
                 <label>Bullet Points:</label>
