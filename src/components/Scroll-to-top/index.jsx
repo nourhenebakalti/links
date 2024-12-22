@@ -5,9 +5,14 @@ import scrollToTop from "../../common/scrollToTo";
 const ScrollToTop = () => {
   const router = useRouter();
 
-  // Define the paths where ScrollToTop should appear
-  const allowedRoutes = ["/", "/home", "/projects", "/contact","/project_details/"]; // Add your desired routes here
-  const showScrollToTop = allowedRoutes.includes(router.pathname);
+  // Define the allowed routes, including a wildcard for dynamic segments
+  const allowedRoutes = ["/", "/home", "/projects", "/contact", "/project_details/[id]"]; 
+
+  const showScrollToTop = allowedRoutes.some((route) => {
+    // Use a regular expression to match dynamic segments
+    const regex = new RegExp(`^${route.replace(/\[[^\]]+\]/g, "(.+)")}$`); 
+    return regex.test(router.pathname);
+  });
 
   React.useEffect(() => {
     if (showScrollToTop) {
@@ -32,5 +37,3 @@ const ScrollToTop = () => {
 };
 
 export default ScrollToTop;
-
-

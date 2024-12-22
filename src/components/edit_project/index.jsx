@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'; 
 import axios from 'axios'; 
 import { useRouter } from 'next/router';
+import Styles from '../../layouts/edit_project.module.scss';
 
 const EditProjectForm = ({ projectId }) => {
     const router = useRouter();
@@ -16,8 +17,8 @@ const EditProjectForm = ({ projectId }) => {
         coverImage: null,
         images: [],
         bulletPoints: [''], 
-        behindTheSeance: false, // State for the checkbox
-        behindTheSeancesPictures: [] // Array for multiple file uploads
+        behindTheSeance: false,
+        behindTheSeancesPictures: []
     });
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
@@ -116,106 +117,107 @@ const EditProjectForm = ({ projectId }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            {successMessage && <div className="alert alert-success">{successMessage}</div>}
-            {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
-            <div>
-                <label>Title:</label>
-                <input type="text" name="title" value={projectData.title} onChange={handleInputChange} />
-            </div>
-            <div>
-                <label>Description:</label>
-                <textarea name="description" value={projectData.description} onChange={handleInputChange} />
-            </div>
-            <div>
-                <label>Website Link:</label>
-                <input type="url" name="websiteLink" value={projectData.websiteLink} onChange={handleInputChange} />
-            </div>
-            <div>
-                <label>YouTube Link:</label>
-                <input type="url" name="youtubeLink" value={projectData.youtubeLink} onChange={handleInputChange} />
-            </div>
-            <div>
-                <label>Client Type:</label>
-                <select name="client_type" value={projectData.client_type} onChange={handleInputChange}>
-                    <option value="">Select Client Type</option>
-                    <option value="Tourism">Tourism</option>
-                    <option value="Restaurants">Restaurants</option>
-                    <option value="Fashion">Fashion</option>
-                    <option value="Events">Events</option>
-                    <option value="Others">Others</option>
-                </select>
-            </div>
-            <div>
-                <label>About Section:</label>
-                <textarea name="about_section" value={projectData.about_section} onChange={handleInputChange} />
-            </div>
-            <div>
-                <label>Categories:</label>
-                <input
-                    type="text"
-                    name="categories"
-                    value={projectData.categories}
-                    onChange={handleInputChange}
-                    placeholder="Enter categories separated by commas"
-                />
-            </div>
-            <div>
-                <label>Location:</label>
-                <input
-                    type="text"
-                    name="location"
-                    value={projectData.location}
-                    onChange={handleInputChange}
-                />
-            </div>
-            <div>
-                <label>Behind the Seance:</label>
-                <input
-                    type="checkbox"
-                    checked={projectData.behindTheSeance}
-                    onChange={(e) => setProjectData({ ...projectData, behindTheSeance: e.target.checked })}
-                />
-            </div>
-            {/* Conditionally render Behind Seance Pictures input */}
-            {projectData.behindTheSeance && (
+        <div className={Styles.container}>
+            <form className={Styles.form} onSubmit={handleSubmit}>
+                {successMessage && <div className="alert alert-success">{successMessage}</div>}
+                {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
+
                 <div>
-                    <label>Behind the Seance Pictures:</label>
+                    <label>Title:</label>
+                    <input type="text" name="title" value={projectData.title} onChange={handleInputChange} />
+                </div>
+                <div>
+                    <label>Description:</label>
+                    <textarea name="description" value={projectData.description} onChange={handleInputChange} />
+                </div>
+                <div>
+                    <label>Website Link:</label>
+                    <input type="url" name="websiteLink" value={projectData.websiteLink} onChange={handleInputChange} />
+                </div>
+                <div>
+                    <label>YouTube Link:</label>
+                    <input type="url" name="youtubeLink" value={projectData.youtubeLink} onChange={handleInputChange} />
+                </div>
+                <div>
+                    <label>Client Type:</label>
+                    <select name="client_type" value={projectData.client_type} onChange={handleInputChange}>
+                        <option value="">Select Client Type</option>
+                        <option value="Tourism">Tourism</option>
+                        <option value="Restaurants">Restaurants</option>
+                        <option value="Fashion">Fashion</option>
+                        <option value="Events">Events</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+                <div>
+                    <label>About Section:</label>
+                    <textarea name="about_section" value={projectData.about_section} onChange={handleInputChange} />
+                </div>
+                <div>
+                    <label>Categories:</label>
                     <input
-                        type="file"
-                        name="behindTheSeancesPictures"
-                        accept="image/*"
-                        multiple
-                        onChange={handleFileChange}
+                        type="text"
+                        name="categories"
+                        value={projectData.categories}
+                        onChange={handleInputChange}
+                        placeholder="Enter categories separated by commas"
                     />
                 </div>
-            )}
-            {/* Bullet Points Section */}
-            <div>
-                <label>Bullet Points:</label>
-                {projectData.bulletPoints.map((bulletPoint, index) => (
-                    <div key={index} style={{ marginBottom: '10px' }}>
+                <div>
+                    <label>Location:</label>
+                    <input
+                        type="text"
+                        name="location"
+                        value={projectData.location}
+                        onChange={handleInputChange}
+                    />
+                </div>
+                <div>
+                    <label>Behind the Seance:</label>
+                    <input
+                        type="checkbox"
+                        checked={projectData.behindTheSeance}
+                        onChange={(e) => setProjectData({ ...projectData, behindTheSeance: e.target.checked })}
+                    />
+                </div>
+                {projectData.behindTheSeance && (
+                    <div>
+                        <label>Behind the Seance Pictures:</label>
                         <input
-                            type="text"
-                            value={bulletPoint}
-                            onChange={(e) => handleBulletPointChange(index, e.target.value)}
-                            placeholder="Enter bullet point" 
+                            type="file"
+                            name="behindTheSeancesPictures"
+                            accept="image/*"
+                            multiple
+                            onChange={handleFileChange}
                         />
-                        <button type="button" onClick={() => deleteBulletPoint(index)}>Delete</button>
                     </div>
-                ))}
-                <button type="button" onClick={addBulletPoint}>Add Another Bullet Point</button>
-            </div>
-            <div>
-                <label>Cover Image:</label>
-                <input type="file" name="coverImage" accept="image/*" onChange={handleFileChange} />
-            </div>
-            <div>
-                <label>Images:</label>
-                <input type="file" name="images" accept="image/*" multiple onChange={handleFileChange} />
-            </div>
-            <button type="submit">Update Project</button>
-        </form>
+                )}
+                <div>
+                    <label>Bullet Points:</label>
+                    {projectData.bulletPoints.map((bulletPoint, index) => (
+                        <div key={index}>
+                            <input
+                                type="text"
+                                value={bulletPoint}
+                                onChange={(e) => handleBulletPointChange(index, e.target.value)}
+                                placeholder="Enter bullet point" 
+                            />
+                            <button type="button" onClick={() => deleteBulletPoint(index)}>Delete</button>
+                        </div>
+                    ))}
+                    <button type="button" onClick={addBulletPoint}>Add Another Bullet Point</button>
+                </div>
+                <div>
+                    <label>Cover Image:</label>
+                    <input type="file" name="coverImage" accept="image/*" onChange={handleFileChange} />
+                </div>
+                <div>
+                    <label>Images:</label>
+                    <input type="file" name="images" accept="image/*" multiple onChange={handleFileChange} />
+                </div>
+                <button type="submit">Update Project</button>
+            </form>
+        </div>
     );
 };
 

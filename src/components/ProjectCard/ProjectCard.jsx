@@ -62,7 +62,7 @@ export default function Card({
         </span>
         <div>
           <h2>{name}</h2>
-          <p>{description}</p>
+          <p>{description.length > 60 ? description.slice(0, 80) + '...' : description}</p>
         </div>
       </div>
       <div className={styles.rightcontent}>
