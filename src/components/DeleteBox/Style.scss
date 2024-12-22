@@ -1,0 +1,77 @@
+
+.DeleteBox{
+  width: 90%;
+  max-width: 600px; 
+  height: auto;  
+  background-color: white;
+  border: 1px solid transparent;
+  border-radius: 30px;
+  padding: 30px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .CancelIcon{
+    transition: all 0.5s ease;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 20px;
+    top: 18px;
+    font-size: 20px;
+    border: 1px solid white;
+    border-radius: 50%;
+    background-color: rgba(255, 30, 0, 0.514);
+    &:hover{
+      transition: all 0.5s ease;
+      background-color: rgba(255, 30, 0, 0.736);
+    }
+  }
+  .DeleteContent{
+    margin-top: 8%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    h1{
+      text-align: center;
+      color: #333;
+    }
+    .confirmationmessage {
+      width: 500px;
+      font-size: 16px;
+      color: #333;
+      line-height: 1.5;
+      margin: 35px 0;
+      text-align: center; 
+      padding: 0 20px;
+      line-height: 30px;
+    }
+    
+  }
+  .ApproveDelete{
+    transition: all 0.5s ease;
+    cursor: pointer;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid white;
+    color: white;
+    background-color: $primary-color;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover{
+      transition: all 0.5s ease;
+      background-color:$hover-color;
+    }
+  }
+}
+
+

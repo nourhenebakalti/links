@@ -15,9 +15,9 @@ const AddProjectForm = () => {
         location: '',
         coverImage: null,
         images: [],
-        bulletPoints: [''], // Initial bullet point input
-        behindTheSeance: false, // State to manage the checkbox
-        behindTheSeancesPictures: [] // Array for multiple file uploads
+        bulletPoints: [''], 
+        behindTheSeance: false,
+        behindTheSeancesPictures: [] 
     });
     const [successMessage, setSuccessMessage] = useState(''); 
 
@@ -105,14 +105,14 @@ const AddProjectForm = () => {
                 location: '',
                 coverImage: null,
                 images: [],
-                bulletPoints: [''], // Reset bullet points after submission
-                behindTheSeance: false, // Reset after submission
-                behindTheSeancesPictures: [] // Reset after submission
+                bulletPoints: [''],
+                behindTheSeance: false,
+                behindTheSeancesPictures: [] 
             });
             
         } catch (error) {
             console.error('Error creating project:', error.response ? error.response.data : error.message);
-            setSuccessMessage(''); // Clear success message if there's an error
+            setSuccessMessage('');
         }
     };
 

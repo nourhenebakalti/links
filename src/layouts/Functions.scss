@@ -1,0 +1,7 @@
+// Utility functions for repeated styles
+@mixin hover-effect($color) {
+  transition: color $transition;
+  &:hover {
+    color: $color;
+  }
+}

@@ -5,6 +5,7 @@ import Cursor from "../components/Cursor";
 import ScrollToTop from "../components/Scroll-to-top";
 import LoadingScreen from "../components/Loading-Screen";
 import "../styles/globals.css";
+import "../styles/index.module.scss";
 
 function MyApp({ Component, pageProps }) {
   return (
