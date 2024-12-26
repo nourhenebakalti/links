@@ -36,7 +36,7 @@ const IntroWithSlider1 = ({ sliderRef }) => {
 
         <div
           className="bg-img valign"
-          style={{ backgroundImage: `url(/img/slid/a2.jpg )` }}
+          style={{ backgroundImage: `url(/img/slid/Frame_10000073581.png)` }}
         >
           {!load ? (
             <Swiper
@@ -100,30 +100,18 @@ const IntroWithSlider1 = ({ sliderRef }) => {
                   >
                     <div className="container">
                       <div className="row justify-content-center">
-                        <div className=" col-md-9">
+                        <div className="col-md-9">
                           <div className="caption center mt-50">
-                            
-                              <h2 className="words chars splitting">
+                            <h1 className="words chars splitting">
                               {typeof slide.title === "object" ? (
-                                  <>
-                                    {slide.title.first} <br />
-                                   
-                                  </>
-                                ) : (
-                                  slide.title
-                                )}
-                              </h2>
-                              <h1 className="words chars splitting">
-                                {typeof slide.title === "object" ? (
-                                  <>
-                                    {slide.title.second}
-                                  </>
-                                ) : (
-                                  slide.title
-                                )}
-                              </h1>
-                          
-                            
+                                <>
+                                  {slide.title.first} <br />
+                                  {slide.title.second}
+                                </>
+                              ) : (
+                                slide.title
+                              )}
+                            </h1>
                             {slide?.content && <p>{slide.content}</p>}
                             <Link href="/contact">
                               <a className="btn-curve btn-lit mt-30">
@@ -159,13 +147,13 @@ const IntroWithSlider1 = ({ sliderRef }) => {
           ></div>
 
           <div className="social-icon">
-                  <a href="https://www.facebook.com/LinKs.tn" className="icon">
-                    <i className="fab fa-facebook-f"></i>
-                  </a>
-                  <a href="https://www.instagram.com/links.station/" className="icon">
-                    <i className="fab fa-instagram"></i>
-                  </a>
-                </div>
+            <a href="https://www.facebook.com/LinKs.tn" className="icon">
+              <i className="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/links.station/" className="icon">
+              <i className="fab fa-instagram"></i>
+            </a>
+          </div>
         </div>
       </div>
     </header>

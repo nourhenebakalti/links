@@ -1,27 +1,27 @@
 import nodemailer from 'nodemailer';
-
 require('dotenv').config();
+
 const sendEmail = async (req, res) => {
   // Extract form data from the request
-  const { name, email, message } = req.body;
+  const { name, email, message, workType, services, domain, priorities } = req.body;
 
-  // Nodemailer setup for Gmail
+  // Nodemailer setup for Outlook
   const transporter = nodemailer.createTransport({
-    host: 'smtp.office365.com', // Outlook SMTP server
-    port: 587, // Outlook SMTP port
+    host: 'smtp.office365.com',
+    port: 587,
     secure: false,
     auth: {
-      user: process.env.MAIL, // Your Gmail address
-      pass: process.env.PASS, // Your Gmail password
+      user: process.env.MAIL, // Your Outlook address
+      pass: process.env.PASS, // Your Outlook password
     },
   });
 
   // Email content
   const mailOptions = {
-    from: 'linksprod@outlook.com', // Your Gmail address
+    from: process.env.MAIL, // Your Outlook address
     to: 'contact@linksprod.com', // Recipient's email address
     subject: 'New message from contact form',
-    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}\nWork Type: ${workType.join(', ')}\nServices: ${services.join(', ')}\nDomain: ${domain.join(', ')}\nPriorities: ${priorities.join(', ')}`,
   };
 
   // Send email
@@ -37,11 +37,12 @@ const sendEmail = async (req, res) => {
 };
 
 export default sendEmail;
+
 export const config = {
-    api: {
-      bodyParser: {
-        sizeLimit: '1mb',
-      },
-      externalResolver: true,
+  api: {
+    bodyParser: {
+      sizeLimit: '1mb',
     },
-  };
+    externalResolver: true,
+  },
+};

@@ -2,19 +2,19 @@
   {
     "id": 1,
     "icon": "pe-7s-light",
-    "title": "Creativity & Innovation",
-    "details": "Pioneering strategies for digital excellence."
+    "title": "Innovative Web Development",
+    "details": "Custom web solutions using the latest technologies."
   },
   {
     "id": 2,
-    "icon": "pe-7s-study",
-    "title": "Specialization",
-    "details": "Tailored solutions for diverse industries."
+    "icon": "pe-7s-science",
+    "title": "Artificial Intelligence",
+    "details": "Optimization through AI and data analysis."
   },
   {
     "id": 3,
-    "icon": "pe-7s-medal",
-    "title": "Results",
-    "details": "Unparalleled value for your brand."
+    "icon": "pe-7s-airplay",
+    "title": "User Experience",
+    "details": "User-centered design and intuitive interfaces."
   }
 ]

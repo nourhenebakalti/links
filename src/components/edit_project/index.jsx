@@ -52,8 +52,20 @@ const EditProjectForm = ({ projectId }) => {
         if (name === 'coverImage') {
             setProjectData({ ...projectData, coverImage: files[0] });
         } else if (name === 'images') {
+            // Limit for main images
+            if (files.length > 5) {
+                alert("You can only upload a maximum of 5 images.");
+                e.target.value = ''; // Clear the input
+                return;
+            }
             setProjectData({ ...projectData, images: files });
         } else if (name === 'behindTheSeancesPictures') {
+            // Limit for Behind the Seance Pictures
+            if (files.length > 5) {
+                alert("You can only upload a maximum of 5 behind-the-seance pictures.");
+                e.target.value = ''; // Clear the input
+                return;
+            }
             setProjectData({ ...projectData, behindTheSeancesPictures: files });
         }
     };

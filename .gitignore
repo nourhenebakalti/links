@@ -130,3 +130,4 @@ dist
 .pnp.*
 # Ignore uploads directory to prevent it from being uploaded to the server
 uploads/
+backend.env

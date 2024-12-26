@@ -31,11 +31,24 @@ const AddProjectForm = () => {
 
     const handleFileChange = (e) => {
         const { name, files } = e.target;
+
         if (name === 'coverImage') {
             setProjectData({ ...projectData, coverImage: files[0] }); 
         } else if (name === 'images') {
+            // Limit for main images
+            if (files.length > 5) {
+                alert("You can only upload a maximum of 5 images.");
+                e.target.value = ''; // Clear the input
+                return;
+            }
             setProjectData({ ...projectData, images: files }); 
         } else if (name === 'behindTheSeancesPictures') {
+            // Limit for Behind the Seance Pictures
+            if (files.length > 5) {
+                alert("You can only upload a maximum of 5 behind-the-seance pictures.");
+                e.target.value = ''; // Clear the input
+                return;
+            }
             setProjectData({ ...projectData, behindTheSeancesPictures: files }); // Set for multiple uploads
         }
     };
@@ -137,7 +150,7 @@ const AddProjectForm = () => {
                         value={projectData.description}
                         onChange={(e) => setProjectData({ ...projectData, description: e.target.value })}
                         required
-                    />
+                    maxLength={100}/>
                 </div>
                 <div>
                     <label>Website Link:</label>
@@ -256,7 +269,7 @@ const AddProjectForm = () => {
                         onChange={handleFileChange}
                     />
                 </div>
-                <button className={Styles.addbutton}  type="submit">Add Project</button>
+                <button className={Styles.addbutton} type="submit">Add Project</button>
             </form>
         </div>
     );
