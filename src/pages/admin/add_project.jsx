@@ -150,7 +150,7 @@ const AddProjectForm = () => {
                         value={projectData.description}
                         onChange={(e) => setProjectData({ ...projectData, description: e.target.value })}
                         required
-                    maxLength={100}/>
+                    />
                 </div>
                 <div>
                     <label>Website Link:</label>

@@ -1,11 +1,10 @@
-/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Split from "../Split";
 import Link from "next/link";
 import axios from "axios";
 import initIsotope from "../../common/initIsotope";
 
-const PortfolioCustomColumn = ({column,filterPosition,hideFilter,hideSectionTitle,}) => {
+const PortfolioCustomColumn = ({ column, filterPosition, hideFilter, hideSectionTitle, }) => {
   
   const [pageLoaded, setPageLoaded] = React.useState(false);
   const [portfolio1Data, setProjects] = React.useState([]);
@@ -32,6 +31,13 @@ const PortfolioCustomColumn = ({column,filterPosition,hideFilter,hideSectionTitl
     };
     fetchProjects();
   }, []);
+
+  // Define inline styles for cover images
+  const coverImageStyle = {
+    width: '100%', 
+    height: '550px', 
+    objectFit: 'cover',
+  };
 
   return (
     <section className="portfolio section-padding pb-70">
@@ -89,6 +95,7 @@ const PortfolioCustomColumn = ({column,filterPosition,hideFilter,hideSectionTitl
                       <img
                         src={'http://localhost:5000'+item.coverImage}
                         alt={item.title}
+                        style={coverImageStyle} // Apply inline styles
                         onMouseEnter={() => setIsHovered(true)}
                         onMouseLeave={() => setIsHovered(false)}
                       />

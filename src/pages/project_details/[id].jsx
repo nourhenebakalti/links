@@ -82,8 +82,8 @@ const ProjectDetails = () => {
         <meta name="keywords" content="Penelope Thalasso & Spa, Les Termailes Paris, content production, promotional videos, commercial photoshoot, digital marketing campaigns, social paid advertising, social media management"/>
         </Helmet>
         <ProjectDetailsIntroduction des={project?.description} bulletPoints={project?.bulletPoints} />
-        <ProjectDetailsImages images={project?.images} />
-        <ProjectDetailsDescription title={project?.title} about_section={project?.about_section} />
+        {project?.images?.length > 1 && <ProjectDetailsImages images={project?.images} />}
+        {project?.about_section && <ProjectDetailsDescription title={project?.title} about_section={project?.about_section} />}
         <ProjectDetailsVideo
         videoUrl={project?.youtubeLink}
         />
