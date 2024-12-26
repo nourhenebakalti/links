@@ -5,7 +5,7 @@ const cors = require('cors');
 const projectRoutes = require('./routes/projects_routes');
 const authRoutes = require('./routes/admin_route');
 const morgan = require('morgan');
-const path = require('path'); // Import path module
+const path = require('path'); 
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -13,16 +13,16 @@ const port = process.env.PORT || 5000;
 // Serve static files from the uploads directory
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/links')
-  .then(() => console.log('MongoDB Connected'))
-  .catch(err => console.error(err));
+// Connect to MongoDB locally
+// mongoose.connect('mongodb://localhost:27017/links')
+//   .then(() => console.log('MongoDB Connected'))
+//   .catch(err => console.error(err));
 
 
 // Connect to MongoDB using environment variable
-  // mongoose.connect(process.env.MONGODB_URI)
-  // .then(() => console.log('MongoDB Connected'))
-  // .catch(err => console.error(err));
+  mongoose.connect(process.env.MONGODB_URI)
+  .then(() => console.log('MongoDB Connected'))
+  .catch(err => console.error(err));
 
 
 

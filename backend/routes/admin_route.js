@@ -18,7 +18,7 @@ const authMiddleware = async (req, res, next) => {
 
     try {
         const tokenWithoutBearer = token.replace('Bearer ', '');
-        const decoded = jwt.verify(tokenWithoutBearer, 'your_secret_key'); // Change in production
+        const decoded = jwt.verify(tokenWithoutBearer, 'links_feelinks'); // Change in production
 
         if (!decoded.userId) {
             return res.status(401).json({ error: 'Invalid token' });
@@ -79,7 +79,7 @@ router.post('/login', async (req, res) => {
             return res.status(401).json({ error: 'Invalid email or password' });
         }
 
-        const token = jwt.sign({ userId: user._id }, 'your_secret_key', { expiresIn: '48h' }); // Change in production
+        const token = jwt.sign({ userId: user._id }, 'links_feelinks', { expiresIn: '48h' }); // Change in production
         res.json({ token });
     } catch (err) {
         res.status(500).json({ error: 'Server Error' });
