@@ -8,9 +8,9 @@ import ProjectDetailsImages from "../../components/Project-details2-images";
 import ProjectDetailsDescription from "../../components/Project-details-description";
 import ProjectDetailsVideo from "../../components/Project-details-video";
 import Works1Slider from "../../components/Works1-slider";
-import Footer from "../../components/Footer";
+import Footer from "../../components/Footer_feelinks";
 import { useRouter } from 'next/router';
-import CallToAction from "../../components/Call-to-action";
+import CallToAction from "../../components/Call-to-action_feelinks";
 
 const ProjectDetails = () => {
     const navbarRef = React.useRef(null);

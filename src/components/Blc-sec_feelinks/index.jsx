@@ -20,7 +20,8 @@ const BlcSec = () => {
                   className="extra-title wow words chars splitting"
                   data-splitting
                 >
-                  We help to create strategies, design & development.
+                 Building Strategies and Roadmaps for Success.
+
                 </h2>
               
             </div>
@@ -29,10 +30,8 @@ const BlcSec = () => {
             <div className="full-width">
               
                 <p className="wow txt words chars splitting" data-splitting>
-                  We never underestimate any parts of each project as
-                  they&apos;re all essential to meeting the ultimate goal.
-                  you&apos;ll be engaged in with our positive and enthusiastic
-                  attitude.
+                We specialize in crafting tailored strategies and actionable roadmaps, ensuring your brand 
+                reaches its full potential
                 </p>
               
                 <Link href="/projects">

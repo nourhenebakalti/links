@@ -7,7 +7,7 @@ import ProjectDetails2Introduction from "../components/Project-details2-introduc
 import ProjectDetails2Images from "../components/Project-details2-images-exist";
 import ProjectDetailsVideo from "../components/Project-details-video";
 import Works1Slider from "../components/Works1-slider-exist";
-import Footer from "../components/Footer";
+import Footer from "../components/Footer_feelinks";
 
 
 const ProjectDetails2Dark = () => {

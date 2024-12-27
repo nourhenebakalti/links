@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "icon": "pe-7s-light",
+    "title": "Innovative Web Development",
+    "details": "Custom web solutions using the latest technologies."
+  },
+  {
+    "id": 2,
+    "icon": "pe-7s-science",
+    "title": "Artificial Intelligence",
+    "details": "Optimization through AI and data analysis."
+  },
+  {
+    "id": 3,
+    "icon": "pe-7s-airplay",
+    "title": "User Experience",
+    "details": "User-centered design and intuitive interfaces."
+  }
+]

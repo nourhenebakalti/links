@@ -2,7 +2,7 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
 import Link from "next/link";
-import appData from "../../data/app.json";
+import appData from "../../data/app_feelinks.json";
 import {
   handleDropdown,
   handleMobileDropdown,
@@ -67,13 +67,8 @@ const Navbar = ({ lr, nr, theme }) => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/contact">
+              <Link href="/contact_feelinks">
                 <a className="nav-link">Contact</a>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link href="/feelinks">
-                <a className="nav-link">feelinks</a>
               </Link>
             </li>
           </ul>

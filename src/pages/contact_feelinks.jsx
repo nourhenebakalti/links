@@ -1,14 +1,12 @@
 import React from "react";
-import DarkTheme from "../layouts/Dark";
 import { Helmet } from "react-helmet";
-import Navbar from "../components/Navbar";
-import PortfolioCustomColumn from "../components/Portfolio-custom-column";
-import CallToAction from "../components/Call-to-action_feelinks";
-import Footer from "../components/Footer_feelinks";
-//import ContactHeader from "../components/Project-header";
+import ContactHeader from "../components/Contact-header";
+import ContactWithMap from "../components/Contact-with-map_feelinks";
+import Navbar from "../components/Navbar_feelinks";
+import DarkTheme from "../layouts/Dark";
+import Header from "../components/About-header";
 
-
-const Works3Dark = () => {
+const Contact = () => {
   const fixedHeader = React.useRef(null);
   const MainContent = React.useRef(null);
   const navbarRef = React.useRef(null);
@@ -35,21 +33,21 @@ const Works3Dark = () => {
       }
     });
   }, []);
-
   return (
     <DarkTheme>
       <Navbar nr={navbarRef} />
       <Helmet>
-        <title>Links Station | Projects Showcase</title>
-        <meta name="description" content="Step into our world of creativity and innovation. Explore past projects showcasing the LINKS STATION difference. Each a testament to our commitment to excellence, creativity, and results. Ready to be inspired? Dive into our portfolio"/>
+      <title>Links Station | Contact Us</title>
+      <meta name="description" content="Get in touch with Links Station today for expert identity and brand development services. Our team is ready to assist you in creating a compelling brand presence."/>
+      <meta name="keywords" content="contact, Links Station, identity development, brand development, branding services, contact us, brand presence"/>
+      <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <div className="main-content" ref={MainContent}>
-        <PortfolioCustomColumn  column={3}/>
-        <CallToAction theme="dark" />
-        <Footer noSubBG />
+        <Header/>
+        <ContactWithMap />
       </div>
     </DarkTheme>
   );
 };
 
-export default Works3Dark;
+export default Contact;

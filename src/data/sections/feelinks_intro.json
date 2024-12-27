@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "title": {
+      "first": "Connecting Brands",
+      "second": "with Their Audiences"
+    },
+    "content": "We blend emotions and technology to craft meaningful, immersive experiences that truly resonate.",
+    "image": ""
+  },
+  {
+    "id": 2,
+    "title": {
+      "first": " Innovation",
+      "second": "for Impact" 
+
+    },
+    "content": "By merging creative vision with technological excellence, we deliver transformative experiences that build lasting connections with your audience.",
+"image": ""
+  },
+  {
+    "id": 3,
+    "title":{
+      "first": "Data-Driven",
+      "second": " Futures"
+    },
+    "content": "Leveraging analytics and technology, we turn insights into actionable strategies, crafting forward-thinking solutions that fuel growth and innovation.",
+    "image": ""
+  }
+]

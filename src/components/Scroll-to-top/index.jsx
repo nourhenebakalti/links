@@ -6,7 +6,7 @@ const ScrollToTop = () => {
   const router = useRouter();
 
   // Define the allowed routes, including a wildcard for dynamic segments
-  const allowedRoutes = ["/", "/home", "/projects", "/contact", "/project_details/[id]"]; 
+  const allowedRoutes = ["/", "/home", "/projects", "/contact", "/project_details/[id]","/feelinks","/contact_feelinks"]; 
 
   const showScrollToTop = allowedRoutes.some((route) => {
     // Use a regular expression to match dynamic segments

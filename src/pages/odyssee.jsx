@@ -8,7 +8,7 @@ import ProjectDetails2Images from "../components/Project-details2-images";
 import ProjectDetailsDescription from "../components/Project-details-description";
 import ProjectDetailsVideo from "../components/Project-details-video";
 import Works1Slider from "../components/Works1-slider";
-import Footer from "../components/Footer";
+import Footer from "../components/Footer_feelinks";
 
 //import NextProject from "../../components/Next-project";
 //import SmallFooter from "../../components/Small-footer";

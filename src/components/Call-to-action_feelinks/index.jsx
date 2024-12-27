@@ -20,15 +20,15 @@ const CallToAction = ({ img, theme, subBG }) => {
                   className="wow words custom-font chars"
                   data-splitting
                 >
-                  Elevate your brand with  </h1>
-                  <h2> LINKS STATION!
+                  Let’s make it happen  </h1>
+                  <h2> get started today!
                 </h2>
              
             </div>
           </div>
 
           <div className="col-md-4 col-lg-3 valign">
-            <Link href="/contact">
+            <Link href="/contact_feelinks">
               <a
                 className={`btn-curve ${
                   theme == "light" ? "btn-blc" : "btn-lit"

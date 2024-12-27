@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import DarkTheme from "../layouts/Dark";
 import ProjectDetails2Header from "../components/Project-details2-header-tunisiatrip";
 import ProjectDetails2Introduction from "../components/Project-details2-introduction-tunisiatrip";
-import Footer from "../components/Footer";
+import Footer from "../components/Footer_feelinks";
 import { Helmet } from "react-helmet";
 import FigmaEmbed from "../components/Presentation/Index.jsx";
 

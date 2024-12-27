@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "Web Solutions Development:",
+    "title2": "",
+    "icon": "pe-7s-browser",
+    "content": "We deliver tailored web solutions with responsive designs, scalable architectures, and seamless integrations. Our expertise spans complex coding languages and diverse technologies, enabling us to create secure, innovative, and impactful digital experiences for businesses of all kinds."
+  },
+  {
+    "id": 2,
+    "title": "Mobile app",
+    "title2": "",
+    "icon": "pe-7s-phone",
+    "content": "We create innovative, high-performance mobile apps tailored to your needs. From native iOS and Android development to cross-platform solutions, our services include advanced features, seamless UI/UX design, performance optimization, testing, deployment, and maintenance."
+  },
+  {
+    "id": 3,
+    "title": "Integration",
+    "title2": "",
+    "icon": "pe-7s-box2",
+    "content": "We deliver seamless integration of advanced technologies, including third-party APIs, cloud migration (AWS, Azure, Google Cloud), IoT solutions, and business automation. Our services ensure scalability, security, GDPR compliance, high availability, and 24/7 support."
+  },
+  {
+    "id": 4,
+    "title": "Innovation Consulting",
+    "title2": "",
+    "icon": "pe-7s-light",
+    "content": "Empowering your digital transformation with strategic consulting, we offer audits, technology roadmaps, change management, and skill transfer. Our services include innovation planning, process optimization, feasibility studies, prototyping, and tailored solutions for sustainable growth."
+  },
+  {
+    "id": 5,
+    "title": "Loyalty Systems",
+    "title2": "",
+    "icon": "pe-7s-like",
+    "content": "We create tailored loyalty systems, including rewards programs, customer behavior analytics, and automated marketing campaigns. Our solutions feature CRM integration, real-time offer personalization, analytical dashboards, and tools to enhance customer engagement and retention."
+  },
+  {
+    "id": 6, 
+    "title": "Artificial Intelligence",
+    "title2": "",
+    "icon": "pe-7s-science",
+    "content": "Unlock the potential of AI with tailored solutions, including Machine Learning, NLP, computer vision, predictive analytics, and automation. We deliver chatbots, virtual assistants, recommendation systems, and Big Data insights to drive innovation and efficiency."
+  }
+]

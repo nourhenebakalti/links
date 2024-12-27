@@ -6,7 +6,7 @@ import ProjectDetails2Header from "../components/Project-details2-header-kab";
 import ProjectDetails2Introduction from "../components/Project-details2-introduction-kab";
 import ProjectDetails2Images from "../components/Project-details2-images-kab";
 import ProjectDetailsVideo from "../components/Project-details-video";
-import Footer from "../components/Footer";
+import Footer from "../components/Footer_feelinks";
 
 const ProjectDetails2Dark = () => {
     const navbarRef = React.useRef(null);
